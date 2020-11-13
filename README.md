@@ -1,6 +1,6 @@
 ## Getting Started
 
-First, nstall libraries (Node 12.11.0):
+First, install libraries (Node 12.11.0):
 
 ```bash
 yarn 
@@ -26,6 +26,8 @@ master #deployments to production
 develop
 feature/architecture # Planning architecture
 ```
+
+For every feature there is a Pull Request, I'm trying to simulute a real world development team contributions, where you can do or ask for code reviews.
 
 ## Technologies Used
 
