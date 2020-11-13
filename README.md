@@ -3,7 +3,6 @@
 First, nstall libraries (Node 12.11.0):
 
 ```bash
-# or
 yarn 
 ```
 
@@ -11,7 +10,6 @@ yarn
 Then, run the development server:
 
 ```bash
-# or
 yarn dev
 ```
 
@@ -35,7 +33,7 @@ feature/architecture # Planning architecture
 Next.js # Used for SEO and SSR
 Styled Components # Styling library used to make resuable and easy-readable components
 Jest / Enzyme # Testing Suite
-Redux/Redux-Thunk # State management and midleware for side effects
+Redux/Redux-Saga # State management and midleware for side effects
 Cypress # end to end testing
 Axios # Promise based HTTP client
 PropTypes # Used for component documentaiton
