@@ -1,11 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+First, nstall libraries (Node 12.11.0):
 
 ```bash
-npm run dev
+# or
+yarn 
+```
+
+
+Then, run the development server:
+
+```bash
 # or
 yarn dev
 ```
@@ -14,17 +19,80 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Learn More
+## Workflow
 
-To learn more about Next.js, take a look at the following resources:
+The branching model used is github, this helps a lot with collaboration and scaling the development team.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+master #deployments to production
+develop
+feature/architecture # Planning architecture
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Technologies Used
 
-## Deploy on Vercel
+```
+Next.js # Used for SEO and SSR
+Styled Components # Styling library used to make resuable and easy-readable components
+Jest / Enzyme # Testing Suite
+Redux/Redux-Thunk # State management and midleware for side effects
+Cypress # end to end testing
+Axios # Promise based HTTP client
+PropTypes # Used for component documentaiton
+Helmet # Used for SEO
+Immutable  # To have immutable data
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Redux Pattern
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-modular-redux), that collocates actions, action types and reducers.
+
+## Structure overview
+
+
+```
+├── README.md
+├── package.json
+├── pages
+│   ├── _app.js
+│   ├── _document.js
+│   └── index.js
+├── src
+│   ├── components
+│   │   └── Card
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── Map
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── Marker
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── Navbar
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── Col
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── Row
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── index.js
+│   ├── redux
+│   │   └── home
+│   │   │   └── duck.js
+│   │   └── store.js
+│   │   └── index.js
+│   ├── containers
+│   │   └── Home
+│   │   │   └── index.js
+│   ├── utils
+│   │   └── index.js
+└── yarn.lock
+```
