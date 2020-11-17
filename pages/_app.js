@@ -6,9 +6,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: rgb(249, 249, 249); 
   }
 `;
 
+console.log("theme", theme);
 export default function App({ Component, pageProps }) {
   return (
     <>
