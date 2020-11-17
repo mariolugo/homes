@@ -75,14 +75,6 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
-│   │   └── Col
-│   │   │   └── index.js
-│   │   │   └── __tests__/
-│   │   │   │   └── index.test.js
-│   │   └── Row
-│   │   │   └── index.js
-│   │   │   └── __tests__/
-│   │   │   │   └── index.test.js
 │   │   └── index.js
 │   ├── redux
 │   │   └── home
