@@ -25,6 +25,7 @@ The branching model used is github, this helps a lot with collaboration and scal
 master #deployments to production
 develop
 feature/architecture # Planning architecture
+feature/layout # Layout implementation with StyledComponents and CSS Flexbox
 ```
 
 For every feature there is a Pull Request, I'm trying to simulute a real world development team contributions, where you can do or ask for code reviews.
@@ -36,7 +37,6 @@ Next.js # Used for SEO and SSR
 Styled Components # Styling library used to make resuable and easy-readable components
 Jest / Enzyme # Testing Suite
 Redux/Redux-Saga # State management and midleware for side effects
-Cypress # end to end testing
 Axios # Promise based HTTP client
 PropTypes # Used for component documentaiton
 Helmet # Used for SEO
