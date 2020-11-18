@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const MapContainerStyled = styled.div`
   position: fixed;
-  height: 880px;
+  height: 700px;
   background-color: ${({ theme }) => theme.colors.primary};
 `;
 

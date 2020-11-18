@@ -4,6 +4,7 @@ import { Col, Row } from 'react-styled-flexboxgrid';
 import { WrapperGrid, Logo } from '../';
 import Favorites from '../../assets/icons/favorites.svg';
 import { useDeviceDetect } from '../../utils';
+
 const NavBarStyled = styled.nav`
   background-color: white;
   border-bottom: 1px solid ${({ theme }) => theme.colors.pink};
@@ -68,7 +69,7 @@ const ListItemStyled = styled.li`
   vertical-align: middle;
   transition: background-color 0.2s linear 0s;
   &:hover {
-    background-color: rgb(238, 238, 238);
+    background-color: ${({ theme }) => theme.colors.linkHover};
   }
 
   @media only screen and (max-width: 640px) {

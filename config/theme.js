@@ -9,6 +9,7 @@ export default {
     grayLight: 'rgb(233, 233, 233)',
     body: 'rgb(249, 249, 249)',
     textPrimary: 'rgb(74, 74, 74)',
+    linkHover: 'rgb(238, 238, 238)',
   },
   flexboxgrid: {
     // Defaults
