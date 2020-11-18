@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Col, Row } from 'react-styled-flexboxgrid';
+import { Col, Row } from 'react-styled-flexboxgrid';
+import { WrapperGrid } from '../';
 
 const NavBarStyled = styled.nav`
   background-color: white;
@@ -13,13 +14,13 @@ const NavBarStyled = styled.nav`
 
 const NavBar = () => (
   <NavBarStyled>
-    <Grid>
+    <WrapperGrid>
       <Row>
         <Col xs={12}>
           <p>This is the navbar</p>
         </Col>
       </Row>
-    </Grid>
+    </WrapperGrid>
   </NavBarStyled>
 );
 

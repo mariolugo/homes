@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Grid, Col, Row } from 'react-styled-flexboxgrid';
+import { Col, Row } from 'react-styled-flexboxgrid';
+import { WrapperGrid } from '../';
 
 const FooterStyled = styled.div`
   background-color: white;
@@ -11,13 +12,13 @@ const FooterStyled = styled.div`
 
 const Footer = () => (
   <FooterStyled>
-    <Grid>
+    <WrapperGrid>
       <Row>
         <Col xs={12}>
           <p>Footer</p>
         </Col>
       </Row>
-    </Grid>
+    </WrapperGrid>
   </FooterStyled>
 );
 

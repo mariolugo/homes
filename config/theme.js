@@ -12,12 +12,12 @@ export default {
   flexboxgrid: {
     // Defaults
     gridSize: 12, // columns
-    gutterWidth: 0, // rem
+    gutterWidth: 2, // rem
     outerMargin: 0, // rem
     mediaQuery: 'only screen',
     container: {
       sm: 46, // rem
-      md: 64, // rem
+      md: 61, // rem
       lg: 76, // rem
     },
     breakpoints: {

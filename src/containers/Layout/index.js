@@ -1,15 +1,14 @@
 import React from 'react';
-import { Grid, Col, Row } from 'react-styled-flexboxgrid';
+import { Col, Row } from 'react-styled-flexboxgrid';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { NavBar, Footer } from '../../components';
+import { NavBar, Footer, WrapperGrid } from '../../components';
 
 const LayoutStyled = styled.div``;
 
 const ContainerStyled = styled.div`
   margin: 0px auto;
   height: auto !important;
-
   padding-top: 60px;
 `;
 
@@ -19,13 +18,13 @@ const ContainerStyled = styled.div`
 const Layout = ({ children }) => (
   <LayoutStyled>
     <NavBar />
-    <Grid>
+    <WrapperGrid>
       <Row>
         <Col xs={12}>
           <ContainerStyled>{children}</ContainerStyled>
         </Col>
       </Row>
-    </Grid>
+    </WrapperGrid>
     <Footer />
   </LayoutStyled>
 );

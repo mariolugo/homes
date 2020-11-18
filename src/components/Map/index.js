@@ -3,13 +3,13 @@ import styled from 'styled-components';
 // import { Col, Row } from 'react-styled-flexboxgrid';
 
 const MapContainerStyled = styled.div`
-  height: 95%;
   position: fixed;
+  height: 880px;
+  background-color: ${({ theme }) => theme.colors.primary};
 `;
 
 const MapStyled = styled.div`
-  background-color: ${({ theme }) => theme.colors.primary};
-  width: 380px;
+  width: 450px;
 `;
 
 const MapContainer = () => (

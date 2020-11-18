@@ -3,9 +3,8 @@
 First, install libraries (Node 12.11.0):
 
 ```bash
-yarn 
+yarn
 ```
-
 
 Then, run the development server:
 
@@ -35,6 +34,7 @@ For every feature there is a Pull Request, I'm trying to simulute a real world d
 
 Used `eslint` for
 `prettier` for
+
 ## Libraries Used
 
 These are ones of the major libraries used
@@ -50,7 +50,7 @@ Helmet # Used for SEO
 Immutable  # To have immutable data
 husky # precommit, ensure same slyting and no javascript errors before commit
 eslint # linter tool to find and fix problems in javascript code.
-prettier # to share the same code styling 
+prettier # to share the same code styling
 ```
 
 ## Redux Pattern
@@ -58,7 +58,6 @@ prettier # to share the same code styling
 I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-modular-redux), that collocates actions, action types and reducers.
 
 ## Structure overview
-
 
 ```
 ├── README.md
