@@ -25,6 +25,7 @@ The branching model used is github, this helps a lot with collaboration and scal
 master #deployments to production
 develop
 feature/architecture # Planning architecture
+feature/eslint # Added code styling (eslint and prettier)
 ```
 
 For every feature there is a Pull Request, I'm trying to simulute a real world development team contributions, where you can do or ask for code reviews.
