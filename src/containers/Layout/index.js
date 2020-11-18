@@ -8,36 +8,24 @@ const LayoutStyled = styled.div``;
 const ContainerStyled = styled.div`
   margin: 0px auto;
   height: auto !important;
-  min-height: calc(100vh - 80px);
-`;
 
-const WrapperStyled = styled.div`
   padding-top: 60px;
 `;
+
 /**
  * Layout Component
  */
 const Layout = ({ children }) => (
   <LayoutStyled>
-    <Grid fluid>
+    <NavBar />
+    <Grid>
       <Row>
         <Col xs={12}>
-          <NavBar />
-        </Col>
-      </Row>
-      <Row center="xs">
-        <Col xs={12} md={8}>
-          <ContainerStyled>
-            <WrapperStyled>{children}</WrapperStyled>
-          </ContainerStyled>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12}>
-          <Footer />
+          <ContainerStyled>{children}</ContainerStyled>
         </Col>
       </Row>
     </Grid>
+    <Footer />
   </LayoutStyled>
 );
 

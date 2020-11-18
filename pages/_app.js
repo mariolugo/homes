@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-console.log("theme", theme);
 export default function App({ Component, pageProps }) {
   return (
     <>
