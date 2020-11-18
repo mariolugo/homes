@@ -13,6 +13,15 @@ const GlobalStyle = createGlobalStyle`
     font-display: swap;
   }
 
+  @font-face {
+    font-family: 'Open Sans Bold';
+    src: url("/fonts/Open_Sans/OpenSans-SemiBold.ttf");
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+  }
+  
+
    body {
     margin: 0;
     padding: 0;

@@ -1,21 +1,27 @@
 import styled from 'styled-components';
 import { Col, Row } from 'react-styled-flexboxgrid';
 import { Layout } from '..';
-import { Listings, Map } from '../../components';
+import { Listings, ListingsHeader, Map } from '../../components';
 
 const RowStyled = styled(Row)`
   min-height: calc(100vh - 80px);
 `;
 
+const ListingsContainer = styled(Col)`
+  height: 100%;
+  overflow: hidden;
+  padding-top: 20px;
+`;
 /**
  * Home component
  */
 const Home = () => (
   <Layout>
     <RowStyled>
-      <Col xs={12} md={7}>
+      <ListingsContainer xs={12} md={7}>
+        <ListingsHeader />
         <Listings />
-      </Col>
+      </ListingsContainer>
       <Col xs={12} md={5}>
         <Map />
       </Col>
