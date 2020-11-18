@@ -1,5 +1,5 @@
-import Document from "next/document";
-import { ServerStyleSheet } from "styled-components";
+import Document from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 /**
  * This is used to server side render css code from styled components
@@ -12,8 +12,7 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);

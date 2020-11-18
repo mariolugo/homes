@@ -3,9 +3,8 @@
 First, install libraries (Node 12.11.0):
 
 ```bash
-yarn 
+yarn
 ```
-
 
 Then, run the development server:
 
@@ -26,31 +25,32 @@ master #deployments to production
 develop
 feature/architecture # Planning architecture
 feature/eslint # Added code styling (eslint and prettier)
+feature/layout # Layout implementation with StyledComponents and CSS Flexbox
 ```
 
 For every feature there is a Pull Request, I'm trying to simulute a real world development team contributions, where you can do or ask for code reviews.
 
 ## Styling
 
-Used `eslint` for
-`prettier` for
+Used `eslint`  for...
+`prettier` for...
+
 ## Libraries Used
 
-These are ones of the major libraries used
+These are ones of the major libraries used:
 
 ```
 Next.js # Used for SEO and SSR
 Styled Components # Styling library used to make resuable and easy-readable components
 Jest / Enzyme # Testing Suite
 Redux/Redux-Saga # State management and midleware for side effects
-Cypress # end to end testing
 Axios # Promise based HTTP client
 PropTypes # Used for component documentaiton
 Helmet # Used for SEO
 Immutable  # To have immutable data
 husky # precommit, ensure same slyting and no javascript errors before commit
 eslint # linter tool to find and fix problems in javascript code.
-prettier # to share the same code styling 
+prettier # to share the same code styling
 ```
 
 ## Redux Pattern
@@ -59,17 +59,15 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 
 ## Structure overview
 
-
 ```
 ├── README.md
-├── package.json
 ├── pages
 │   ├── _app.js
 │   ├── _document.js
 │   └── index.js
 ├── src
 │   ├── components
-│   │   └── Card
+│   │   └── Footer
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
@@ -77,19 +75,19 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
-│   │   └── Marker
+│   │   └── Listings
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
-│   │   └── Navbar
+│   │   └── NavBar
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
-│   │   └── Col
+│   │   └── Post
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
-│   │   └── Row
+│   │   └── WrapperGrid
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
@@ -102,7 +100,14 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 │   ├── containers
 │   │   └── Home
 │   │   │   └── index.js
+│   │   └── Layout
+│   │   │   └── index.js
+│   │   └── index.js
 │   ├── utils
 │   │   └── index.js
 └── yarn.lock
+├── package.json
+├── .eslintrc.json
+├── .prettierrc
+├── jsconfig.json
 ```
