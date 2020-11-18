@@ -3,11 +3,22 @@ import theme from '../config/theme';
 import Proptypes from 'prop-types';
 
 const GlobalStyle = createGlobalStyle`
-  body {
+ 
+
+  @font-face {
+    font-family: 'Open Sans';
+    src: url("/fonts/Open_Sans/OpenSans-Regular.ttf");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+
+   body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: rgb(249, 249, 249); 
+    font-family: 'Open Sans', sans-serif;
   }
 `;
 

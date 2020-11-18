@@ -4,5 +4,6 @@ import Map from './Map';
 import Footer from './Footer';
 import Post from './Post';
 import WrapperGrid from './WrapperGrid';
+import Logo from './Logo';
 
-export { NavBar, Listings, Map, Footer, Post, WrapperGrid };
+export { NavBar, Listings, Map, Footer, Post, WrapperGrid, Logo };

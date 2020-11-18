@@ -8,6 +8,7 @@ export default {
     pink: 'rgb(255, 216, 231)',
     grayLight: 'rgb(233, 233, 233)',
     body: 'rgb(249, 249, 249)',
+    textPrimary: 'rgb(74, 74, 74)',
   },
   flexboxgrid: {
     // Defaults
