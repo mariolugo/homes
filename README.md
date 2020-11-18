@@ -26,13 +26,14 @@ develop
 feature/architecture # Planning architecture
 feature/eslint # Added code styling (eslint and prettier)
 feature/layout # Layout implementation with StyledComponents and CSS Flexbox
+feature/design # Branch to add all the styling of the app
 ```
 
 For every feature there is a Pull Request, I'm trying to simulute a real world development team contributions, where you can do or ask for code reviews.
 
 ## Styling
 
-Used `eslint`  for...
+Used `eslint` for...
 `prettier` for...
 
 ## Libraries Used
