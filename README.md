@@ -32,12 +32,12 @@ For every feature there is a Pull Request, I'm trying to simulute a real world d
 
 ## Styling
 
-Used `eslint` for
-`prettier` for
+Used `eslint`  for...
+`prettier` for...
 
 ## Libraries Used
 
-These are ones of the major libraries used
+These are ones of the major libraries used:
 
 ```
 Next.js # Used for SEO and SSR
@@ -80,6 +80,14 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
 │   │   └── NavBar
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── Post
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── WrapperGrid
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
