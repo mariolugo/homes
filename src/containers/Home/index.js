@@ -11,6 +11,10 @@ const ListingsContainer = styled(Col)`
   height: 100%;
   overflow: hidden;
   padding-top: 20px;
+
+  @media only screen and (max-width: 500px) {
+    padding-left: 2rem;
+  }
 `;
 /**
  * Home component

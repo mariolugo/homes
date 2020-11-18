@@ -12,6 +12,7 @@ const NavBarStyled = styled.nav`
   width: 100%;
   margin: 0px auto;
   min-height: 60px;
+  z-index: 11;
   p {
     color: ${({ theme }) => theme.colors.textPrimary};
   }

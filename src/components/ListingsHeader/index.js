@@ -5,7 +5,7 @@ import Filter from '../../assets/icons/filter.svg';
 
 const ListingHeaderStyled = styled.div`
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 `;
 
 const FilterButton = styled.button`
@@ -30,6 +30,10 @@ const FilterButton = styled.button`
     font-family: 'Open Sans Bold', sans-serif;
     font-size: 16px;
     margin: 0;
+  }
+
+  @media only screen and (max-width: 500px) {
+    margin-top: 15px;
   }
 `;
 
