@@ -8,6 +8,11 @@ const PostStyled = styled.div`
   margin-bottom: 25px;
 
   @media only screen and (min-width: 770px) {
+    width: 260px;
+    height: 240px;
+  }
+
+  @media only screen and (min-width: 1204px) {
     width: 273px;
     height: 240px;
   }
