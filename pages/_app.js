@@ -1,5 +1,6 @@
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import theme from "../config/theme";
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import theme from '../config/theme';
+import Proptypes from 'prop-types';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -10,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export default function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
   return (
     <>
       <GlobalStyle />
@@ -19,4 +20,11 @@ export default function App({ Component, pageProps }) {
       </ThemeProvider>
     </>
   );
-}
+};
+
+App.propTypes = {
+  Component: Proptypes.func.isRequired,
+  pageProps: Proptypes.object.isRequired,
+};
+
+export default App;

@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Col, Row } from "react-styled-flexboxgrid";
+import React from 'react';
+import styled from 'styled-components';
+// import { Col, Row } from 'react-styled-flexboxgrid';
 
 const ListingsContainerStyled = styled.div`
   height: 100%;

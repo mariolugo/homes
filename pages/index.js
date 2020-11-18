@@ -1,3 +1,3 @@
-import { Home } from "../src/containers";
+import { Home } from '../src/containers';
 
 export default Home;

@@ -62,14 +62,13 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 
 ```
 ├── README.md
-├── package.json
 ├── pages
 │   ├── _app.js
 │   ├── _document.js
 │   └── index.js
 ├── src
 │   ├── components
-│   │   └── Card
+│   │   └── Footer
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
@@ -77,11 +76,11 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
-│   │   └── Marker
+│   │   └── Listings
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
-│   │   └── Navbar
+│   │   └── NavBar
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
@@ -94,7 +93,14 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 │   ├── containers
 │   │   └── Home
 │   │   │   └── index.js
+│   │   └── Layout
+│   │   │   └── index.js
+│   │   └── index.js
 │   ├── utils
 │   │   └── index.js
 └── yarn.lock
+├── package.json
+├── .eslintrc.json
+├── .prettierrc
+├── jsconfig.json
 ```

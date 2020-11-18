@@ -1,7 +1,8 @@
-import React from "react";
-import { Grid, Col, Row } from "react-styled-flexboxgrid";
-import styled from "styled-components";
-import { NavBar, Footer } from "../../components";
+import React from 'react';
+import { Grid, Col, Row } from 'react-styled-flexboxgrid';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { NavBar, Footer } from '../../components';
 
 const LayoutStyled = styled.div``;
 
@@ -28,5 +29,9 @@ const Layout = ({ children }) => (
     <Footer />
   </LayoutStyled>
 );
+
+Layout.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 export default Layout;

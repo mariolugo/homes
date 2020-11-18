@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Col, Row } from "react-styled-flexboxgrid";
+import React from 'react';
+import styled from 'styled-components';
+// import { Col, Row } from 'react-styled-flexboxgrid';
 
 const MapContainerStyled = styled.div`
   height: 95%;
