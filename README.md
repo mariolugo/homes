@@ -29,7 +29,13 @@ feature/architecture # Planning architecture
 
 For every feature there is a Pull Request, I'm trying to simulute a real world development team contributions, where you can do or ask for code reviews.
 
-## Technologies Used
+## Styling
+
+Used `eslint` for
+`prettier` for
+## Libraries Used
+
+These are ones of the major libraries used
 
 ```
 Next.js # Used for SEO and SSR
@@ -41,6 +47,7 @@ Axios # Promise based HTTP client
 PropTypes # Used for component documentaiton
 Helmet # Used for SEO
 Immutable  # To have immutable data
+eslint # linter tool to find and fix problems in javascript code.
 ```
 
 ## Redux Pattern
