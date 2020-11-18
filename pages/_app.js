@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'Open Sans Bold';
-    src: url("/fonts/Open_Sans/OpenSans-SemiBold.ttf");
+    src: url("/fonts/Open_Sans/OpenSans-Bold.ttf");
     font-style: normal;
     font-weight: 600;
     font-display: swap;

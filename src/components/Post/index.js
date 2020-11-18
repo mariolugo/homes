@@ -1,9 +1,10 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 // import { Col, Row } from 'react-styled-flexboxgrid';
 import FavoriteOutline from '../../assets/icons/favorite-outline.svg';
 import Slider from 'react-styled-carousel';
 import Image from 'next/image';
+import { useGetWidth } from '../../utils';
 
 const PostContainer = styled.div`
   background-color: white;
@@ -19,18 +20,17 @@ const PostContainer = styled.div`
 `;
 
 const PostPrice = styled.div`
-    width: 111px;
-    height: 35px;
-    display: block;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    padding: 6px 7px;
-    box-sizing: border-box;
-    font-family: 'Open Sans Bold',sans-serif;
-    z-index:10;
-    background-color:white;
-}
+  width: 111px;
+  height: 35px;
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  padding: 6px 7px;
+  box-sizing: border-box;
+  font-family: 'Open Sans Bold', sans-serif;
+  z-index: 10;
+  background-color: white;
 `;
 
 const FavoriteIcon = styled.button`
@@ -65,25 +65,24 @@ const ImageSlide = styled.div`
 `;
 
 const ExclusiveContainer = styled.div`
-    width: 100%;
-    height: 22px;
-    display: block;
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: 'Open Sans Bold',sans-serif;
-    z-index:10;
-    background-color: ${({ theme }) => theme.colors.secondaryTransparent};
-    color: white;
+  width: 100%;
+  height: 22px;
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Open Sans Bold', sans-serif;
+  z-index: 10;
+  background-color: ${({ theme }) => theme.colors.secondaryTransparent};
+  color: white;
 
-    p {
-        margin: 0;
-        text-align: center;
-        font-size: 14px;
-    }
-}
+  p {
+    margin: 0;
+    text-align: center;
+    font-size: 14px;
+  }
 `;
 
 const PostTitle = styled.p`
@@ -262,24 +261,8 @@ const renderAmenity = (type) => {
 };
 
 const Post = () => {
-  const [width, setWidth] = useState(0);
   const componentRef = useRef();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(componentRef.current.offsetWidth);
-    };
-
-    if (componentRef.current) {
-      setWidth(componentRef.current.offsetWidth);
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [componentRef]);
+  const width = useGetWidth(componentRef);
 
   return (
     <PostContainer ref={componentRef}>

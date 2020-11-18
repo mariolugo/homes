@@ -1,7 +1,9 @@
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { Col, Row } from 'react-styled-flexboxgrid';
 import { Layout } from '..';
-import { Listings, ListingsHeader, Map } from '../../components';
+import { Listings, ListingsHeader, Map, Paginator, ListingsFooter } from '../../components';
+import { useGetWidth } from '../../utils';
 
 const RowStyled = styled(Row)`
   min-height: calc(100vh - 80px);
@@ -19,18 +21,24 @@ const ListingsContainer = styled(Col)`
 /**
  * Home component
  */
-const Home = () => (
-  <Layout>
-    <RowStyled>
-      <ListingsContainer xs={12} md={7}>
-        <ListingsHeader />
-        <Listings />
-      </ListingsContainer>
-      <Col xs={12} md={5}>
-        <Map />
-      </Col>
-    </RowStyled>
-  </Layout>
-);
+const Home = () => {
+  const mapRef = useRef();
+  const mapWidth = useGetWidth(mapRef);
+  return (
+    <Layout>
+      <RowStyled>
+        <ListingsContainer xs={12} md={7}>
+          <ListingsHeader />
+          <Listings />
+          <Paginator />
+          <ListingsFooter />
+        </ListingsContainer>
+        <Col xs={12} md={5} ref={mapRef}>
+          <Map width={mapWidth} />
+        </Col>
+      </RowStyled>
+    </Layout>
+  );
+};
 
 export default Home;

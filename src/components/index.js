@@ -6,5 +6,18 @@ import Post from './Post';
 import WrapperGrid from './WrapperGrid';
 import Logo from './Logo';
 import ListingsHeader from './ListingsHeader';
+import Paginator from './Paginator';
+import ListingsFooter from './ListingsFooter';
 
-export { NavBar, Listings, Map, Footer, Post, WrapperGrid, Logo, ListingsHeader };
+export {
+  NavBar,
+  Listings,
+  Map,
+  Footer,
+  Post,
+  WrapperGrid,
+  Logo,
+  ListingsHeader,
+  Paginator,
+  ListingsFooter,
+};
