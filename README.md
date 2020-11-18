@@ -47,7 +47,9 @@ Axios # Promise based HTTP client
 PropTypes # Used for component documentaiton
 Helmet # Used for SEO
 Immutable  # To have immutable data
+husky # precommit, ensure same slyting and no javascript errors before commit
 eslint # linter tool to find and fix problems in javascript code.
+prettier # to share the same code styling 
 ```
 
 ## Redux Pattern
