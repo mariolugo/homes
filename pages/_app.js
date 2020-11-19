@@ -1,9 +1,10 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import theme from '../config/theme';
 import Proptypes from 'prop-types';
-
+import { useStore } from '../src/redux/store';
 import Head from 'next/head';
 import { GOOGLE_MAPS_API_URL } from '../src/constants';
+import { Provider } from 'react-redux';
 
 const GlobalStyle = createGlobalStyle`
  
@@ -35,15 +36,18 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = ({ Component, pageProps }) => {
+  const store = useStore(pageProps.initialReduxState);
   return (
     <>
       <Head>
         <script type="text/javascript" src={GOOGLE_MAPS_API_URL} />
       </Head>
       <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Provider>
     </>
   );
 };

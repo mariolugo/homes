@@ -27,6 +27,7 @@ feature/architecture # Planning architecture
 feature/eslint # Added code styling (eslint and prettier)
 feature/layout # Layout implementation with StyledComponents and CSS Flexbox
 feature/design # Branch to add all the styling of the app
+feature/redux # Branch to add the redux functionality
 ```
 
 For every feature there is a Pull Request, I'm trying to simulute a real world development team contributions, where you can do or ask for code reviews.
@@ -58,7 +59,6 @@ prettier # to share the same code styling
 ## Google Maps
 
 I have not used a map library. I think you can have a better control of the map if you are not using a library. I'm importing on `pages/_app.js` the script tag with the google maps url.
-
 
 ## Redux Pattern
 
