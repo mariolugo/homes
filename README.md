@@ -33,8 +33,9 @@ For every feature there is a Pull Request, I'm trying to simulute a real world d
 
 ## Styling
 
-Used `eslint` for...
-`prettier` for...
+Used `eslint`,it is going to tell you if you’ve imported something and not used it, if your function could be short-handed, and loads of other little gotchas that you can fully configure.
+
+Used `prettier`, it is an opinionated code formatter, this will assure that the code styling is the same.
 
 ## Libraries Used
 
@@ -54,6 +55,11 @@ eslint # linter tool to find and fix problems in javascript code.
 prettier # to share the same code styling
 ```
 
+## Google Maps
+
+I have not used a map library. I think you can have a better control of the map if you are not using a library. I'm importing on `pages/_app.js` the script tag with the google maps url.
+
+
 ## Redux Pattern
 
 I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-modular-redux), that collocates actions, action types and reducers.
@@ -68,11 +74,15 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 │   └── index.js
 ├── src
 │   ├── components
+│   │   └── DraggableControl
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
 │   │   └── Footer
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
-│   │   └── Map
+│   │   └── HelpControl
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
@@ -80,7 +90,27 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
+│   │   └── ListingsFooter
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── ListingsHeader
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── Logo
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── Map
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
 │   │   └── NavBar
+│   │   │   └── index.js
+│   │   │   └── __tests__/
+│   │   │   │   └── index.test.js
+│   │   └── Paginator
 │   │   │   └── index.js
 │   │   │   └── __tests__/
 │   │   │   │   └── index.test.js
@@ -98,6 +128,8 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 │   │   │   └── duck.js
 │   │   └── store.js
 │   │   └── index.js
+│   ├── constants
+│   │   └── index.js
 │   ├── containers
 │   │   └── Home
 │   │   │   └── index.js
@@ -106,6 +138,8 @@ I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-m
 │   │   └── index.js
 │   ├── utils
 │   │   └── index.js
+│   │   └── useDeviceDetect.js
+│   │   └── useGetWidth.js
 └── yarn.lock
 ├── package.json
 ├── .eslintrc.json
