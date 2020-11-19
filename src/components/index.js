@@ -8,7 +8,8 @@ import Logo from './Logo';
 import ListingsHeader from './ListingsHeader';
 import Paginator from './Paginator';
 import ListingsFooter from './ListingsFooter';
-
+import DraggableControl from './DraggableControl';
+import HelpControl from './HelpControl';
 export {
   NavBar,
   Listings,
@@ -20,4 +21,6 @@ export {
   ListingsHeader,
   Paginator,
   ListingsFooter,
+  DraggableControl,
+  HelpControl,
 };
