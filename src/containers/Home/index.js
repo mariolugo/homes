@@ -5,7 +5,14 @@ import { Layout } from '..';
 import { Listings, ListingsHeader, Map, Paginator, ListingsFooter } from '../../components';
 import { useGetWidth } from '../../utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchHomes, getHomes } from '../../redux/modules/home';
+import {
+  fetchHomes,
+  getCurrentHomes,
+  getCurrentPage,
+  getTotalPages,
+  getTotalHomes,
+  paginateNextPage,
+} from '../../redux/modules/home';
 
 const RowStyled = styled(Row)`
   min-height: calc(100vh - 80px);
@@ -20,6 +27,7 @@ const ListingsContainer = styled(Col)`
     padding-left: 2rem;
   }
 `;
+
 /**
  * Home component
  */
@@ -27,22 +35,39 @@ const Home = () => {
   const mapRef = useRef();
   const mapWidth = useGetWidth(mapRef);
   const dispatch = useDispatch();
-  const homes = useSelector(getHomes);
 
-  console.log('homess', homes.get('homes'));
+  const totalHomes = useSelector(getTotalHomes);
+  const currentPage = useSelector(getCurrentPage);
+  const totalPages = useSelector(getTotalPages);
+  const currentHomes = useSelector(getCurrentHomes);
+
+  const goNext = () => {
+    dispatch(paginateNextPage({ page: 1 }));
+  };
+
+  const goBack = () => {
+    dispatch(paginateNextPage({ page: -1 }));
+  };
 
   useEffect(() => {
     dispatch(fetchHomes());
-    return () => {};
   }, []);
+
+  console.log('currentHomes', currentHomes);
 
   return (
     <Layout>
       <RowStyled>
         <ListingsContainer xs={12} md={7}>
           <ListingsHeader />
-          <Listings />
-          <Paginator />
+          <Listings currentHomes={currentHomes} />
+          <Paginator
+            goNext={goNext}
+            goBack={goBack}
+            totalPages={totalPages}
+            totalHomes={totalHomes}
+            currentPage={currentPage}
+          />
           <ListingsFooter />
         </ListingsContainer>
         <Col xs={12} md={5} ref={mapRef}>
