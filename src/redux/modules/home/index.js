@@ -1,5 +1,4 @@
 import { HomeData } from '../../../models';
-import { switchHandler } from '../../../utils';
 import { call, fork, put, takeEvery } from 'redux-saga/effects';
 
 // creating an immutable initial state
@@ -18,19 +17,17 @@ const FETCH_HOMES_ERROR = 'modules/home/FETCH_HOMES_ERROR';
  *
  * @param {*} state
  */
-const onFetch = (state) => {
-  console.log('sirveeeee');
-  return state.merge({
+const onFetch = (state) =>
+  state.merge({
     fetching: true,
   });
-};
 
 /**
  *
  * @param {*} state
  * @param {*} {payload}
  */
-const onFetchSuccess = (state, { payload }) => {
+const onFetchSuccess = (state, payload) => {
   let newState = state;
 
   if (payload.homes) {
@@ -49,7 +46,7 @@ const onFetchSuccess = (state, { payload }) => {
  * @param {*} {error}
  */
 const onFetchError = (state, { error }) =>
-  state.merge({ fetchStatus: 500, fetchErrorMessage: error });
+  state.merge({ fetching: false, fetchStatus: 500, fetchErrorMessage: error });
 
 // REDUCERS
 
@@ -58,12 +55,21 @@ const onFetchError = (state, { error }) =>
  * @param {*} state
  * @param {*} action
  */
-export default function reducer(state = initialState, action) {
-  return switchHandler({
-    [FETCH_HOMES]: () => onFetch(state, action),
-    [FETCH_HOMES_SUCCESS]: () => onFetchSuccess(state, action),
-    [FETCH_HOMES_ERROR]: () => onFetchError(state, action),
-  })(state)(action.type);
+
+export default function reducer(state = initialState, { type, payload }) {
+  switch (type) {
+    case FETCH_HOMES:
+      return onFetch(state);
+
+    case FETCH_HOMES_SUCCESS:
+      return onFetchSuccess(state, payload);
+
+    case FETCH_HOMES_ERROR:
+      return onFetchError(state, payload);
+
+    default:
+      return state;
+  }
 }
 
 // ACTIONS CREATORS
@@ -102,8 +108,7 @@ export const fetchHomesError = (error) => ({
 function* getHomeWorker(api) {
   try {
     const homesResponse = yield call(api.get, '/homes');
-    console.log('homesResponse', homesResponse);
-    const successAction = fetchHomesSuccess(homesResponse);
+    const successAction = fetchHomesSuccess(homesResponse.data);
     yield put(successAction);
   } catch (e) {
     console.log(e);
@@ -129,4 +134,6 @@ export function* root(api) {
 }
 
 // SELECTOR
-export const getDashboard = (state) => state.home;
+export const getHomes = (state) => {
+  return state.home;
+};

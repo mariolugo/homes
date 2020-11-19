@@ -7,7 +7,7 @@ import { createLogger } from 'redux-logger';
 
 let store;
 
-export const rootReducer = () =>
+const rootReducer = () =>
   combineReducers({
     home: homeReducer,
   });
@@ -24,7 +24,7 @@ const bindMiddleware = (middleware) => {
 export const initStore = (initialState) => {
   const logger = createLogger({ collapsed: true }); // log every action to see what's happening behind the scenes.
   const sagaMiddleware = createSagaMiddleware();
-  const store = createStore(rootReducer, initialState, bindMiddleware([sagaMiddleware, logger]));
+  const store = createStore(rootReducer(), initialState, bindMiddleware([sagaMiddleware, logger]));
 
   store.sagaTask = sagaMiddleware.run(homeSaga, Api);
 
@@ -49,7 +49,6 @@ export const initializeStore = (preloadedState) => {
   if (typeof window === 'undefined') return _store;
   // Create the store once in the client
   if (!store) store = _store;
-
   return _store;
 };
 

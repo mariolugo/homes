@@ -37,7 +37,6 @@ const GlobalStyle = createGlobalStyle`
 
 const App = ({ Component, pageProps }) => {
   const store = useStore(pageProps.initialReduxState);
-  console.log(pageProps);
   return (
     <>
       <Head>

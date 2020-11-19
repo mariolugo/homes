@@ -4,8 +4,8 @@ import { Col, Row } from 'react-styled-flexboxgrid';
 import { Layout } from '..';
 import { Listings, ListingsHeader, Map, Paginator, ListingsFooter } from '../../components';
 import { useGetWidth } from '../../utils';
-import { useDispatch } from 'react-redux';
-import { fetchHomes } from '../../redux/modules/home';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchHomes, getHomes } from '../../redux/modules/home';
 
 const RowStyled = styled(Row)`
   min-height: calc(100vh - 80px);
@@ -27,6 +27,9 @@ const Home = () => {
   const mapRef = useRef();
   const mapWidth = useGetWidth(mapRef);
   const dispatch = useDispatch();
+  const homes = useSelector(getHomes);
+
+  console.log('homess', homes.get('homes'));
 
   useEffect(() => {
     dispatch(fetchHomes());

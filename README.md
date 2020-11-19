@@ -60,7 +60,6 @@ prettier # to share the same code styling
 
 I have not used a map library. I think you can have a better control of the map if you are not using a library. I'm importing on `pages/_app.js` the script tag with the google maps url.
 
-
 ## Redux Pattern
 
 I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-modular-redux), that collocates actions, action types and reducers.
