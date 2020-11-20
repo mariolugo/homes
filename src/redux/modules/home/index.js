@@ -69,12 +69,12 @@ const onFetchError = (state, { error }) =>
  * @param {*} payload
  */
 const onPaginateNextPage = (state, payload) => {
-  console.log('payload', payload);
   let newState = state;
   // get the current page
   const currentPage = newState.get('currentPage');
-  console.log('currentPage', currentPage);
+
   const currentCount = newState.get('currentCount');
+
   const homes = newState.get('homes');
   // get if it is nextPage (+1) or prevPage (-1)
   const addPages = payload.page;
@@ -82,14 +82,14 @@ const onPaginateNextPage = (state, payload) => {
   const nextPage = currentPage + addPages;
 
   let nextHomes;
-  let nextCount;
+  let nextCount = currentCount;
   if (addPages === 1) {
     // move up page, add 12 homes
     const upperCount = currentCount + PER_PAGE;
     const lowerCount = currentCount;
 
     // our count per page
-    nextCount += currentCount;
+    nextCount += PER_PAGE;
 
     nextHomes = homes.slice(lowerCount, upperCount);
   }
@@ -98,11 +98,9 @@ const onPaginateNextPage = (state, payload) => {
     const upperCount = currentCount;
     const lowerCount = currentCount - PER_PAGE;
 
-    nextCount -= lowerCount;
+    nextCount = lowerCount;
     nextHomes = homes.slice(lowerCount - PER_PAGE, upperCount - PER_PAGE);
   }
-
-  console.log('nextPage', nextPage);
 
   window.history.pushState({ page: 1 }, 'title 1', `?page=${nextPage}`);
 
@@ -184,7 +182,6 @@ function* getHomeWorker(api) {
     const successAction = fetchHomesSuccess(homesResponse.data);
     yield put(successAction);
   } catch (e) {
-    console.log(e);
     const errorAction = fetchHomesError(e);
     yield put(errorAction);
   }
@@ -211,3 +208,5 @@ export const getCurrentHomes = (state) => state.home.get('currentHomes');
 export const getTotalHomes = (state) => state.home.get('total');
 export const getTotalPages = (state) => state.home.get('totalPages');
 export const getCurrentPage = (state) => state.home.get('currentPage');
+export const getCurrentCount = (state) => state.home.get('currentCount');
+export const getFetching = (state) => state.home.get('fetching');

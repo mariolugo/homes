@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import FavoriteOutline from '../../assets/icons/favorite-outline.svg';
 import Slider from 'react-styled-carousel';
 import Image from 'next/image';
-import { useGetWidth } from '../../utils';
+import { useGetWidth, formatPrice } from '../../utils';
+import { homeTypes } from '../../types';
 
 const PostContainer = styled.div`
   background-color: white;
@@ -59,6 +60,9 @@ const ImageSlide = styled.div`
   height: 150px;
   position: relative;
 
+  img {
+    width: 100%;
+  }
   @media only screen and (max-width: 500px) {
     height: 210px;
   }
@@ -106,7 +110,7 @@ const Amenity = styled.li`
   width: ${(props) => props.width / 5}px;
   height: 32px;
   font-size: 14px;
-  padding: 8px 5px;
+  padding: 8px 3px;
   box-sizing: border-box;
   border-right: 1px solid ${({ theme }) => theme.colors.grayLight};
 `;
@@ -116,7 +120,7 @@ const AmenityTitle = styled.p`
   margin: 0;
   margin-right: 5px;
   margin-left: 3px;
-  font-size: 14px;
+  font-size: 13px;
   position: relative;
   bottom: 2px;
 `;
@@ -204,54 +208,48 @@ const RightArrow = styled.button`
   }
 `;
 
-const photos = [
-  'https://s3-us-west-2.amazonaws.com/homie-development/assets/home/5c8933b54d35bf523980ffb6/954d6e63-6078-4659-a0e6-91baa2d84005_medium.jpg?1552608360',
-  'https://s3-us-west-2.amazonaws.com/homie-development/assets/home/5c8933b54d35bf523980ffb6/07ee4efc-5c03-41d9-8b2a-036f56987043_medium.jpg?1552608357',
-  'https://s3-us-west-2.amazonaws.com/homie-development/assets/home/5c8933b54d35bf523980ffb6/5aae1f4f-a6a7-4597-a260-43f1b34e7eb3_medium.jpg?1552608357',
-];
-
-const amenities = ['bedrooms', 'bathrooms', 'parkings', 'pet_friendly', 'square_mts'];
+const amenities = ['bedrooms', 'bathrooms', 'parkings', 'pet_friendly', 'sqare_mts'];
 
 const responsive = [
   { breakPoint: 1280, cardsToShow: 1 }, // this will be applied if screen size is greater than 1280px. cardsToShow will become 4.
   { breakPoint: 760, cardsToShow: 1 },
 ];
 
-const renderAmenity = (type) => {
+const renderAmenity = (type, value) => {
   switch (type) {
     case 'bedrooms':
       return (
         <div>
-          <AmenityTitle>2</AmenityTitle>
-          <AmenityImg src="/images/bedroom.png" width={22} height={15} alt="bedroom" />
+          <AmenityTitle>{value[type]}</AmenityTitle>
+          <AmenityImg src="/images/bedroom.png" width={18} height={15} alt="bedroom" />
         </div>
       );
     case 'bathrooms':
       return (
         <div>
-          <AmenityTitle>2</AmenityTitle>
-          <AmenityImg src="/images/bathrooms.png" width={22} height={15} alt="bathrooms" />
+          <AmenityTitle>{value[type]}</AmenityTitle>
+          <AmenityImg src="/images/bathrooms.png" width={18} height={15} alt="bathrooms" />
         </div>
       );
     case 'parkings':
       return (
         <div>
-          <AmenityTitle>1</AmenityTitle>
-          <AmenityImg src="/images/parking.png" width={22} height={15} alt="parking" />
+          <AmenityTitle>{value[type]}</AmenityTitle>
+          <AmenityImg src="/images/parking.png" width={18} height={15} alt="parking" />
         </div>
       );
     case 'pet_friendly':
       return (
         <div>
-          <AmenityTitle>Si</AmenityTitle>
-          <AmenityImg src="/images/pet.png" width={22} height={15} alt="pet friendly" />
+          <AmenityTitle>{value[type] ? 'Si' : 'No'}</AmenityTitle>
+          <AmenityImg src="/images/pet.png" width={18} height={15} alt="pet friendly" />
         </div>
       );
-    case 'square_mts':
+    case 'sqare_mts':
       return (
         <div>
           <AmenityTitle>
-            25m<sup>2</sup>
+            {value[type]}m<sup>2</sup>
           </AmenityTitle>
         </div>
       );
@@ -260,47 +258,72 @@ const renderAmenity = (type) => {
   }
 };
 
-const Post = () => {
+const Post = ({
+  abbr_address,
+  bathrooms,
+  bedrooms,
+  is_homie_exclusive,
+  name,
+  parkings,
+  pet_friendly,
+  photos,
+  price,
+  sqare_mts,
+}) => {
   const componentRef = useRef();
   const width = useGetWidth(componentRef);
 
   return (
     <PostContainer ref={componentRef}>
       <PostPrice>
-        <Price>$3,000</Price>
+        <Price>${formatPrice(price)}</Price>
         <FavoriteIcon>
           <FavoriteOutline />
         </FavoriteIcon>
       </PostPrice>
       <Slider
         showDots={false}
-        padding={0}
+        padding={'0'}
         responsive={responsive}
         LeftArrow={<LeftArrow />}
         RightArrow={<RightArrow />}
         autoSlide={false}
+        DotsWrapper={() => null}
         cardsToShow={1}>
         {photos.map((p) => (
           <ImageSlide key={p}>
-            <img src={p} alt="Yacatas 403" />
-            <ExclusiveContainer>
-              <p>Exclusivo de Homie</p>
-            </ExclusiveContainer>
+            <img src={p} alt={name} />
+            {is_homie_exclusive && (
+              <ExclusiveContainer>
+                <p>Exclusivo de Homie</p>
+              </ExclusiveContainer>
+            )}
           </ImageSlide>
         ))}
       </Slider>
+
       <div>
-        <PostTitle>Yacatas 403</PostTitle>
+        <PostTitle>{abbr_address}</PostTitle>
       </div>
       <Amenities>
-        {amenities.map((a) => (
-          <Amenity key={a} width={width}>
-            {renderAmenity(a)}
+        {amenities.map((amenity) => (
+          <Amenity key={amenity} width={width}>
+            {renderAmenity(amenity, {
+              bathrooms,
+              pet_friendly,
+              bedrooms,
+              parkings,
+              sqare_mts,
+            })}
           </Amenity>
         ))}
       </Amenities>
     </PostContainer>
   );
+};
+
+Post.propTypes = {
+  ...homeTypes,
 };
 
 export default Post;

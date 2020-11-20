@@ -12,6 +12,8 @@ import {
   getTotalPages,
   getTotalHomes,
   paginateNextPage,
+  getFetching,
+  getCurrentCount,
 } from '../../redux/modules/home';
 
 const RowStyled = styled(Row)`
@@ -40,6 +42,8 @@ const Home = () => {
   const currentPage = useSelector(getCurrentPage);
   const totalPages = useSelector(getTotalPages);
   const currentHomes = useSelector(getCurrentHomes);
+  const currentCount = useSelector(getCurrentCount);
+  const fetching = useSelector(getFetching);
 
   const goNext = () => {
     dispatch(paginateNextPage({ page: 1 }));
@@ -53,21 +57,25 @@ const Home = () => {
     dispatch(fetchHomes());
   }, []);
 
-  console.log('currentHomes', currentHomes);
-
   return (
     <Layout>
       <RowStyled>
         <ListingsContainer xs={12} md={7}>
           <ListingsHeader />
-          <Listings currentHomes={currentHomes} />
-          <Paginator
-            goNext={goNext}
-            goBack={goBack}
-            totalPages={totalPages}
-            totalHomes={totalHomes}
-            currentPage={currentPage}
-          />
+          {!fetching && (
+            <>
+              <Listings homes={currentHomes} />
+              <Paginator
+                goNext={goNext}
+                goBack={goBack}
+                totalPages={totalPages}
+                totalHomes={totalHomes}
+                currentPage={currentPage}
+                currentCount={currentCount}
+              />
+            </>
+          )}
+
           <ListingsFooter />
         </ListingsContainer>
         <Col xs={12} md={5} ref={mapRef}>

@@ -28,13 +28,23 @@ const PaginatorText = styled.p`
   font-size: 16px;
 `;
 
-const Paginator = ({ goNext, goBack, currentPage, totalPages, totalHomes }) => (
+const Paginator = ({ goNext, goBack, currentPage, totalPages, totalHomes, currentCount }) => (
   <PaginatorStyled>
-    <PaginatorArrow>{currentPage > 1 && <PrevIcon onClick={() => goBack()} />}</PaginatorArrow>
-    <PaginatorText>1 a 12 de {totalHomes}</PaginatorText>
-    <PaginatorArrow>
-      {currentPage !== totalPages && <NextIcon onClick={() => goNext()} />}
-    </PaginatorArrow>
+    {currentPage > 1 && (
+      <PaginatorArrow>
+        <PrevIcon onClick={() => goBack()} />
+      </PaginatorArrow>
+    )}
+
+    <PaginatorText>
+      {currentCount - 11} a {currentPage !== totalPages ? currentCount : totalHomes} de {totalHomes}
+    </PaginatorText>
+    {currentPage !== totalPages && (
+      <PaginatorArrow>
+        {' '}
+        <NextIcon onClick={() => goNext()} />
+      </PaginatorArrow>
+    )}
   </PaginatorStyled>
 );
 
@@ -44,6 +54,7 @@ Paginator.propTypes = {
   currentPage: PropTypes.number.isRequired,
   totalPages: PropTypes.number.isRequired,
   totalHomes: PropTypes.number.isRequired,
+  currentCount: PropTypes.number.isRequired,
 };
 
 export default Paginator;
