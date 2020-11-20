@@ -61,7 +61,7 @@ const App = ({ Component, pageProps }) => {
       </Helmet>
       <Head>
         <script type="text/javascript" src={GOOGLE_MAPS_API_URL} />
-        <script src="https://unpkg.com/@googlemaps/markerwithlabel/dist/index.min.js"></script>
+        <script type="text/javascript" src="/js/index.min.js" />
       </Head>
       <GlobalStyle />
       <Provider store={store}>
