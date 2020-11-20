@@ -63,6 +63,10 @@ const CheckboxContainer = styled.div`
   vertical-align: middle;
 `;
 
+/**
+ * Component used for the map, in here we have a checkbox and we can add logic to handle the checkbox.
+ * For example we can activate the checkbox and filter the homes if the map changes
+ */
 const DraggableControl = () => {
   const [active, setActive] = useState(false);
 

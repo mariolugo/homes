@@ -22,6 +22,10 @@ const icon = {
   scale: 1.2,
 };
 
+/**
+ *
+ * This is the map component
+ */
 const MapComponent = ({
   width,
   lat,
@@ -37,10 +41,14 @@ const MapComponent = ({
   highlightPost,
   focusPost,
 }) => {
+  // have the map ref on the state
   const [localMapRef, setlocalMapRef] = useState(null);
+  // old current highlight, this is used to remove the highlight on the previous marker
   const [currentHighlight, setCurrentHighlight] = useState();
+  // map reference
   const mapDivRef = useRef();
 
+  // options given to the map
   const options = {
     center: { lat, lng },
     zoom,
@@ -53,11 +61,18 @@ const MapComponent = ({
     streetViewControl: false,
   };
 
+  /**
+   * Change the color of the old and new marker
+   * @param {string} id This is the id of the marker to change the color
+   */
   const changeMarkerColor = (id) => {
+    // get the index of the new marker
     const index = markersArray.findIndex((m) => m.id === id);
 
+    // get the marker by index.
     const marker = markersArray[index];
 
+    // this will set the old marker color back, to the primary one.
     if (currentHighlight && currentHighlight !== id) {
       const oldIndex = markersArray.findIndex((m) => m.id === currentHighlight);
       if (oldIndex > -1) {
@@ -68,6 +83,7 @@ const MapComponent = ({
       }
     }
 
+    // this will add the active color to the new marker
     marker.setMap(null);
     marker.icon.fillColor = 'rgb(255, 21, 85)';
     marker.setMap(map);
@@ -77,14 +93,17 @@ const MapComponent = ({
     setCurrentHighlight(marker.id);
   };
 
+  // this will add the map, we use an empty dependency array to simulate "ComponentDidMount"
   useEffect(() => {
     const google = window.google;
 
+    // here we create both controls of the map
     const dragabbleControl = document.createElement('div');
     const helpControl = document.createElement('div');
-
     ReactDOM.render(<DraggableControl />, dragabbleControl);
     ReactDOM.render(<HelpControl />, helpControl);
+
+    // creates the new map and add it to the global variable for future use.
     if (map === null && mapDivRef.current !== null) {
       map = new google.maps.Map(mapDivRef.current, {
         ...options,
@@ -100,7 +119,11 @@ const MapComponent = ({
     }
   }, []);
 
+  // here we add the current markers to the map
   useEffect(() => {
+    /**
+     * Clear map markers
+     */
     const clearMap = () => {
       for (let i = 0; i < markersArray.length; i++) markersArray[i].setMap(null);
       markersArray = [];
@@ -111,9 +134,12 @@ const MapComponent = ({
         clearMap();
       }
 
+      // initialize bounds used to cover all the markers on the map.
       let bounds = new google.maps.LatLngBounds();
 
+      // creating new markers depending on the markers prop
       for (let i = 0; i < markers.length; i++) {
+        // used a custom library to create custom markers.
         const m = new MarkerWithLabel({
           id: markers[i].id,
           map: map,
@@ -128,6 +154,7 @@ const MapComponent = ({
           labelInBackground: false,
         });
 
+        // add listeners to earch marker.
         new google.maps.event.addListener(m, 'click', function () {
           focusPost(markers[i].id);
         });
@@ -139,12 +166,14 @@ const MapComponent = ({
     }
   }, [localMapRef, markers]);
 
+  // used to change the marker color if you make hover on the home.
   useEffect(() => {
     if (highlightMarker && markersArray.length > 0) {
       changeMarkerColor(highlightMarker);
     }
   }, [highlightMarker]);
 
+  // used to change color of the marker if you click the marker.
   useEffect(() => {
     if (highlightPost && markersArray.length > 0) {
       changeMarkerColor(highlightPost);

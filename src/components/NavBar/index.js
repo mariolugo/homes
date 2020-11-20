@@ -96,6 +96,9 @@ const links = [
   },
 ];
 
+/**
+ * Navbar used for the application, it will change if we are on mobile.
+ */
 const NavBar = () => {
   const { isMobile } = useDeviceDetect();
   return (

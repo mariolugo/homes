@@ -41,6 +41,7 @@ feature/redux # Branch to add the redux functionality
 feature/pagination # Added the paginator with redux
 feature/map # Added map pins
 feature/testing # Adding tests to the app
+feature/documentation # Improving documentation on components
 ```
 
 For every feature there is a Pull Request, I'm trying to simulute a real world development team contributions, where you can do or ask for code reviews.
@@ -149,10 +150,13 @@ I used the saga middleware and an api object, this can be used to handle all the
 │   │   │   │   └── index.test.js
 │   │   └── index.js
 │   ├── redux
-│   │   └── home
-│   │   │   └── duck.js
+│   │   │   └── modules
+│   │   │   └── home
+│   │   │   |   └── __tests__/
+│   │   │   │       └── index.test.js
+│   │   │   │   └── index.js
 │   │   └── store.js
-│   │   └── index.js
+│   │   └── api.js
 │   ├── constants
 │   │   └── index.js
 │   ├── containers

@@ -92,6 +92,7 @@ const onPaginateNextPage = (state, payload) => {
 
   let currentHomes;
   let nextCount = currentCount;
+  // if we go up one page
   if (addPages === 1) {
     // move up page, add 12 homes
     const upperCount = currentCount + PER_PAGE;
@@ -103,6 +104,7 @@ const onPaginateNextPage = (state, payload) => {
     currentHomes = homes.slice(lowerCount, upperCount);
   }
 
+  // if we go back one page
   if (addPages === -1) {
     const upperCount = currentCount;
     const lowerCount = currentCount - PER_PAGE;
@@ -113,6 +115,7 @@ const onPaginateNextPage = (state, payload) => {
 
   window.history.pushState({ page: 1 }, 'title 1', `?page=${nextPage}`);
 
+  //set the current markers
   const markers = currentHomes.map((home) => ({
     id: home.id,
     lat: home.location.lat,
@@ -120,6 +123,7 @@ const onPaginateNextPage = (state, payload) => {
     price: home.price,
   }));
 
+  // add the new state
   newState = newState.merge({
     currentPage: nextPage,
     currentCount: nextCount,
@@ -130,7 +134,7 @@ const onPaginateNextPage = (state, payload) => {
   return newState;
 };
 
-// REDUCERS
+// MAIN REDUCERS
 
 /**
  *
@@ -183,6 +187,10 @@ export const fetchHomesError = (error) => ({
   error,
 });
 
+/**
+ *
+ * @param {*} param0
+ */
 export const paginateNextPage = ({ page }) => ({
   type: PAGINATE_NEXT_PAGE,
   payload: { page },
@@ -192,6 +200,7 @@ export const paginateNextPage = ({ page }) => ({
 /**
  *
  * @param {*} api
+ * In here we call the api and dispatch either a succes or error action
  */
 export function* getHomeWorker(api) {
   try {
@@ -207,6 +216,7 @@ export function* getHomeWorker(api) {
 /**
  *
  * @param {*} api
+ * Spawns a saga on each action dispatched to the Store that matches pattern.
  */
 function* watchHomes(api) {
   yield takeEvery(FETCH_HOMES, getHomeWorker, api);
@@ -215,6 +225,7 @@ function* watchHomes(api) {
 /**
  *
  * @param {*} api
+ * Creates an Effect description that instructs the middleware to perform a non-blocking call
  */
 export function* root(api) {
   yield fork(watchHomes, api);

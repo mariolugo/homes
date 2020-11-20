@@ -59,6 +59,9 @@ const ColCentered = styled(Col)`
   justify-content: center;
 `;
 
+/**
+ * Main footer of the application
+ */
 const Footer = () => (
   <FooterStyled>
     <WrapperGrid>

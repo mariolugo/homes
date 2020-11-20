@@ -238,6 +238,11 @@ const responsive = [
   { breakPoint: 760, cardsToShow: 1 },
 ];
 
+/**
+ *
+ * @param {string} type Used to render the current
+ * @param {*} value the title of the amenity.
+ */
 const renderAmenity = (type, value) => {
   switch (type) {
     case 'bedrooms':
@@ -281,6 +286,10 @@ const renderAmenity = (type, value) => {
   }
 };
 
+/**
+ *
+ * This is the post.
+ */
 const Post = ({
   abbr_address,
   bathrooms,
@@ -297,10 +306,12 @@ const Post = ({
   highlightPost,
 }) => {
   const componentRef = useRef();
+  // created a custom hook to get the width of the post, this is used to render equal width amenities.
   const width = useGetWidth(componentRef);
 
   const hasHighlight = () => highlightPost && highlightPost === id;
 
+  // if a marker is clicked, it will scroll into view. The behavior doesn't work on safari :(
   if (hasHighlight()) {
     componentRef.current.scrollIntoView({
       behavior: 'smooth',
