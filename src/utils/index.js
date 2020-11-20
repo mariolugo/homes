@@ -1,4 +1,4 @@
 import useDeviceDetect from './useDeviceDetect';
 import useGetWidth from './useGetWidth';
-
-export { useDeviceDetect, useGetWidth };
+import formatPrice from './formatPrice';
+export { useDeviceDetect, useGetWidth, formatPrice };

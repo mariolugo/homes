@@ -1,6 +1,8 @@
 import { HomeData } from '../../../models';
 import { call, fork, put, takeEvery } from 'redux-saga/effects';
 
+const PER_PAGE = 12;
+
 // creating an immutable initial state
 const initialState = new HomeData();
 
@@ -10,6 +12,7 @@ const initialState = new HomeData();
 const FETCH_HOMES = 'modules/home/FETCH_HOMES';
 const FETCH_HOMES_SUCCESS = 'modules/home/FETCH_HOMES_SUCCESS';
 const FETCH_HOMES_ERROR = 'modules/home/FETCH_HOMES_ERROR';
+const PAGINATE_NEXT_PAGE = 'modules/home/PAGINATE_NEXT_PAGE';
 
 // STATE IMMUTABLE HELPERS
 
@@ -31,9 +34,21 @@ const onFetchSuccess = (state, payload) => {
   let newState = state;
 
   if (payload.homes) {
+    // set total of elements
+    const total = payload.homes.length;
+    // set totalPages
+    const totalPages = Math.ceil(total / PER_PAGE);
+    // get all the homes
+    const homes = payload.homes;
     newState = newState.merge({
       fetching: false,
-      homes: payload.homes,
+      homes,
+      // load 12 documents to start with.
+      currentHomes: homes.slice(0, PER_PAGE),
+      currentCount: PER_PAGE,
+      totalPages,
+      total,
+      currentPage: 1,
     });
   }
 
@@ -47,6 +62,56 @@ const onFetchSuccess = (state, payload) => {
  */
 const onFetchError = (state, { error }) =>
   state.merge({ fetching: false, fetchStatus: 500, fetchErrorMessage: error });
+
+/**
+ *
+ * @param {*} state
+ * @param {*} payload
+ */
+const onPaginateNextPage = (state, payload) => {
+  let newState = state;
+  // get the current page
+  const currentPage = newState.get('currentPage');
+
+  const currentCount = newState.get('currentCount');
+
+  const homes = newState.get('homes');
+  // get if it is nextPage (+1) or prevPage (-1)
+  const addPages = payload.page;
+  // set current page (current page + next page)
+  const nextPage = currentPage + addPages;
+
+  let nextHomes;
+  let nextCount = currentCount;
+  if (addPages === 1) {
+    // move up page, add 12 homes
+    const upperCount = currentCount + PER_PAGE;
+    const lowerCount = currentCount;
+
+    // our count per page
+    nextCount += PER_PAGE;
+
+    nextHomes = homes.slice(lowerCount, upperCount);
+  }
+
+  if (addPages === -1) {
+    const upperCount = currentCount;
+    const lowerCount = currentCount - PER_PAGE;
+
+    nextCount = lowerCount;
+    nextHomes = homes.slice(lowerCount - PER_PAGE, upperCount - PER_PAGE);
+  }
+
+  window.history.pushState({ page: 1 }, 'title 1', `?page=${nextPage}`);
+
+  newState = newState.merge({
+    currentPage: nextPage,
+    currentCount: nextCount,
+    currentHomes: nextHomes,
+  });
+
+  return newState;
+};
 
 // REDUCERS
 
@@ -67,6 +132,8 @@ export default function reducer(state = initialState, { type, payload }) {
     case FETCH_HOMES_ERROR:
       return onFetchError(state, payload);
 
+    case PAGINATE_NEXT_PAGE:
+      return onPaginateNextPage(state, payload);
     default:
       return state;
   }
@@ -99,6 +166,10 @@ export const fetchHomesError = (error) => ({
   error,
 });
 
+export const paginateNextPage = ({ page }) => ({
+  type: PAGINATE_NEXT_PAGE,
+  payload: { page },
+});
 //SAGAS
 
 /**
@@ -111,7 +182,6 @@ function* getHomeWorker(api) {
     const successAction = fetchHomesSuccess(homesResponse.data);
     yield put(successAction);
   } catch (e) {
-    console.log(e);
     const errorAction = fetchHomesError(e);
     yield put(errorAction);
   }
@@ -133,7 +203,10 @@ export function* root(api) {
   yield fork(watchHomes, api);
 }
 
-// SELECTOR
-export const getHomes = (state) => {
-  return state.home;
-};
+// SELECTORS
+export const getCurrentHomes = (state) => state.home.get('currentHomes');
+export const getTotalHomes = (state) => state.home.get('total');
+export const getTotalPages = (state) => state.home.get('totalPages');
+export const getCurrentPage = (state) => state.home.get('currentPage');
+export const getCurrentCount = (state) => state.home.get('currentCount');
+export const getFetching = (state) => state.home.get('fetching');
