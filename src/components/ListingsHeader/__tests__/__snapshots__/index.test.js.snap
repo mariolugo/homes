@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListingsHeader Component should render without crashing 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-iktFzd dEyOMa"
+      >
+        <div
+          class="sc-gsTCUz ikQfAY"
+        >
+          <div
+            class="sc-dlfnbm fLHlfI"
+          >
+            <div
+              class="sc-hiSbYr cENXig"
+            >
+              <h3>
+                Ciudad de Mexico
+              </h3>
+              <h4>
+                230 departamentos
+              </h4>
+            </div>
+          </div>
+          <div
+            class="sc-dlfnbm hziHjY"
+          >
+            <button
+              class="sc-jJEJSO bRnxGn"
+            >
+              <svg
+                class="HomeFilterComponent__IconFilter-w0q0eh-2 jacTqT"
+                height="15"
+                width="15"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.785 15c-.131 0-.327-.063-.458-.125l-2.68-2.25a.692.692 0 0 1-.196-.5V7.437L.156 1A.465.465 0 0 1 .091.375C.156.125.418 0 .68 0h13.66c.262 0 .458.125.589.375.13.188.065.5-.066.688L9.438 7.5v6.875c0 .25-.13.438-.392.563-.065.062-.13.062-.261.062z"
+                  fill="#fff"
+                />
+              </svg>
+              <p>
+                Filtros
+              </p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-iktFzd dEyOMa"
+    >
+      <div
+        class="sc-gsTCUz ikQfAY"
+      >
+        <div
+          class="sc-dlfnbm fLHlfI"
+        >
+          <div
+            class="sc-hiSbYr cENXig"
+          >
+            <h3>
+              Ciudad de Mexico
+            </h3>
+            <h4>
+              230 departamentos
+            </h4>
+          </div>
+        </div>
+        <div
+          class="sc-dlfnbm hziHjY"
+        >
+          <button
+            class="sc-jJEJSO bRnxGn"
+          >
+            <svg
+              class="HomeFilterComponent__IconFilter-w0q0eh-2 jacTqT"
+              height="15"
+              width="15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.785 15c-.131 0-.327-.063-.458-.125l-2.68-2.25a.692.692 0 0 1-.196-.5V7.437L.156 1A.465.465 0 0 1 .091.375C.156.125.418 0 .68 0h13.66c.262 0 .458.125.589.375.13.188.065.5-.066.688L9.438 7.5v6.875c0 .25-.13.438-.392.563-.065.062-.13.062-.261.062z"
+                fill="#fff"
+              />
+            </svg>
+            <p>
+              Filtros
+            </p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

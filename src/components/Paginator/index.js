@@ -57,4 +57,13 @@ Paginator.propTypes = {
   currentCount: PropTypes.number.isRequired,
 };
 
+Paginator.defaultProps = {
+  goNext: () => {},
+  goBack: () => {},
+  currentPage: 1,
+  totalPages: 1,
+  totalHomes: 1,
+  currentCount: 1,
+};
+
 export default Paginator;

@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar Component should render without crashing 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <nav
+        class="sc-hKgILt feuioQ"
+      >
+        <div
+          class="sc-bdfBwQ sc-kLgntA guSBMN iXAtuJ"
+        >
+          <div
+            class="sc-gsTCUz sc-eCssSg ikQfAY cdLCTx"
+          >
+            <div
+              class="sc-dlfnbm sc-jSgupP sc-gKsewC enWnyg kGOcbo dEYPlJ"
+            >
+              <div
+                style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+              >
+                <div
+                  style="box-sizing: border-box; display: block; max-width: 100%;"
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    role="presentation"
+                    src="data:image/svg+xml;charset=utf-8,<svg width=\\"94\\" height=\\"32\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+                    style="max-width: 100%; display: block;"
+                  />
+                </div>
+                <img
+                  alt="Logo"
+                  decoding="async"
+                  src="/_next/image?url=%2Fimages%2Flogo.png&w=320&q=75"
+                  srcset="/_next/image?url=%2Fimages%2Flogo.png&w=320&q=75 1x"
+                  style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                />
+              </div>
+            </div>
+            <div
+              class="sc-dlfnbm sc-jSgupP cHhzLc kGOcbo"
+            >
+              <svg
+                class="sc-fubCfw ExwbA"
+                height="14"
+                width="15"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.84 2.016A4.099 4.099 0 0 0 11.037.933a4.099 4.099 0 0 0-2.802 1.083l-.736.687-.736-.687A4.099 4.099 0 0 0 3.962.933 4.099 4.099 0 0 0 1.16 2.016c-1.547 1.445-1.547 3.786 0 5.23l6.34 5.917 6.34-5.917c1.547-1.444 1.547-3.785 0-5.23"
+                  fill="#FF1555"
+                />
+              </svg>
+              <p
+                class="sc-pFZIQ evzlSA"
+              >
+                Favoritos
+              </p>
+            </div>
+            <div
+              class="sc-dlfnbm sc-iBPRYJ ktyqAo bttmjO"
+            >
+              <ul
+                class="sc-jrAGrp crlQdU"
+              >
+                <li
+                  class="sc-kEjbxe gsuFIM"
+                >
+                  <p
+                    class="sc-pFZIQ evzlSA"
+                  >
+                    ¿Cómo funciona?
+                  </p>
+                </li>
+                <li
+                  class="sc-kEjbxe gsuFIM"
+                >
+                  <p
+                    class="sc-pFZIQ evzlSA"
+                  >
+                    Soy propietario
+                  </p>
+                </li>
+                <li
+                  class="sc-kEjbxe gsuFIM"
+                >
+                  <p
+                    class="sc-pFZIQ evzlSA"
+                  >
+                    Iniciar sesión
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </body>,
+  "container": <div>
+    <nav
+      class="sc-hKgILt feuioQ"
+    >
+      <div
+        class="sc-bdfBwQ sc-kLgntA guSBMN iXAtuJ"
+      >
+        <div
+          class="sc-gsTCUz sc-eCssSg ikQfAY cdLCTx"
+        >
+          <div
+            class="sc-dlfnbm sc-jSgupP sc-gKsewC enWnyg kGOcbo dEYPlJ"
+          >
+            <div
+              style="display: inline-block; max-width: 100%; overflow: hidden; position: relative; box-sizing: border-box; margin: 0px;"
+            >
+              <div
+                style="box-sizing: border-box; display: block; max-width: 100%;"
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;charset=utf-8,<svg width=\\"94\\" height=\\"32\\" xmlns=\\"http://www.w3.org/2000/svg\\" version=\\"1.1\\"/>"
+                  style="max-width: 100%; display: block;"
+                />
+              </div>
+              <img
+                alt="Logo"
+                decoding="async"
+                src="/_next/image?url=%2Fimages%2Flogo.png&w=320&q=75"
+                srcset="/_next/image?url=%2Fimages%2Flogo.png&w=320&q=75 1x"
+                style="visibility: visible; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              />
+            </div>
+          </div>
+          <div
+            class="sc-dlfnbm sc-jSgupP cHhzLc kGOcbo"
+          >
+            <svg
+              class="sc-fubCfw ExwbA"
+              height="14"
+              width="15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.84 2.016A4.099 4.099 0 0 0 11.037.933a4.099 4.099 0 0 0-2.802 1.083l-.736.687-.736-.687A4.099 4.099 0 0 0 3.962.933 4.099 4.099 0 0 0 1.16 2.016c-1.547 1.445-1.547 3.786 0 5.23l6.34 5.917 6.34-5.917c1.547-1.444 1.547-3.785 0-5.23"
+                fill="#FF1555"
+              />
+            </svg>
+            <p
+              class="sc-pFZIQ evzlSA"
+            >
+              Favoritos
+            </p>
+          </div>
+          <div
+            class="sc-dlfnbm sc-iBPRYJ ktyqAo bttmjO"
+          >
+            <ul
+              class="sc-jrAGrp crlQdU"
+            >
+              <li
+                class="sc-kEjbxe gsuFIM"
+              >
+                <p
+                  class="sc-pFZIQ evzlSA"
+                >
+                  ¿Cómo funciona?
+                </p>
+              </li>
+              <li
+                class="sc-kEjbxe gsuFIM"
+              >
+                <p
+                  class="sc-pFZIQ evzlSA"
+                >
+                  Soy propietario
+                </p>
+              </li>
+              <li
+                class="sc-kEjbxe gsuFIM"
+              >
+                <p
+                  class="sc-pFZIQ evzlSA"
+                >
+                  Iniciar sesión
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -1,0 +1,342 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component should render without crashing 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="sc-bqyKva jQYkRD"
+      >
+        <div
+          class="sc-bdfBwQ sc-kLgntA guSBMN iXAtuJ"
+        >
+          <div
+            class="sc-gsTCUz ikQfAY"
+          >
+            <div
+              class="sc-dlfnbm eSUTag"
+            >
+              <div
+                class="sc-gsTCUz ikQfAY"
+              >
+                <div
+                  class="sc-dlfnbm sc-bkzZxe hziHjY itmDFr"
+                >
+                  <svg
+                    class="Footer__Logo-h84djn-5 cnyeeA"
+                    height="35"
+                    width="35"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M35 0l-.041 35H20.43v-4.503h10.03V4.503H4.58v9.006H0V0h35zM15.69 16.897V35h-4.518v-7.155H4.518V35H0V16.897h4.518v6.853h6.654v-6.853h4.518z"
+                      fill="#FF0364"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="sc-dlfnbm fLHlfI"
+                >
+                  <ul
+                    class="sc-fodVxV cTyRtG"
+                  >
+                    <li
+                      class="sc-fFubgz jmgknO"
+                    >
+                      <p
+                        class="sc-kstrdz iUronQ"
+                      >
+                        hey@homie.mx
+                      </p>
+                    </li>
+                    <li
+                      class="sc-fFubgz jmgknO"
+                    >
+                      <p
+                        class="sc-kstrdz iUronQ"
+                      >
+                        5015 1546
+                      </p>
+                    </li>
+                    <li
+                      class="sc-fFubgz jmgknO"
+                    >
+                      <svg
+                        height="13"
+                        width="12"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <image
+                          fill="none"
+                          fill-rule="evenodd"
+                          height="13"
+                          transform="translate(0 -1)"
+                          width="12"
+                          xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAgCAYAAAAFQMh/AAAABGdBTUEAALGOfPtRkwAABM1JREFUSA3Nll1om2UUx5M3CVk+mtXZimUdrC10Ewdzdl4EhJalNu2uFCbeqExldkOHguKFF1JQwYlUUClWrSgIXlRFJrRpta5ICupa2DoKazFdSLPVdbrZNk2bb38nyxvepG+a2jLwwMl5nvOc8/8/n+eN0bBZ6epS9u055IgpNQ6XKVEVN5srDGaDwRJPRdIJ841kOr4yPffTiqGrK70ZSGO5oJaWFuANTrPZ7DKZTI2KotQbjcaHM5nMfvySP43+kk6nZ1Op1EwymVyiHxkdHU1iS8pGxIrX662E4ACEj4HQhjZAatVDIy6GP4D+SPv7SCRy0e/3L9LX3QFdYla5w2Kx7EdfBORxyFx6ZKV85CyR088OfBiLxaZZ/VpxrKnY0dbW5oDwUba2lzFPqRUW52n7uZwHsY+AM19fX38lEAgktDEFxG632+ZwOE6Q8AFB92gDt9IGZxd6lNyb1dXVk+FwOH/ueWK5RE6n8ymC3id4x1aISuRY8B+xWq1ztbW1l4LBYPbMFTXYZrMd5sa+A6nu5VHjtmIFU7CFQ83PrripqcnOFn9KwAF14A5YO/h7XS7Xt/Pz84nsitn/doiO3AGyAkhuuwcurziF2MRMnkF1n1ZB5u1OCnML1X2fmvg0RCv0JT4rwoE8S8dk5Pns4cpP0qm8Pbzhr4BdRHsBeJVIKSjrJiyEuOcYH6d9lPYuDeotqttBhaok51qWFIAMcTOAPO/z+eSNd9IO5vxZXNpraBjtpXicxtYUkUrcXcKpMCg1d0MhRkgD1OMTAwMD4xI8ODj4M+6TAIewMfQG7W8gPBaPx7sBf4W+Rw8Y/33ccuWQ3mCRLwzpKVbq5wXIu8wK5MMQnqbzA/Y4k3oa0gBv9mN8cmF1hdiDxvb29o8gf0E3AidB1zAnFxYWfBUVFTsBfYD6e4H6+5cmRy5puqOjoxrbw4qOacb0mj2ScF5vJOe7jn2J1Y5VVVU1UwA+YQvP2u32t6h02nuR9ng8d0PYvQlSA3i/K/xcZlX5GiqE9EX+Rl/nBv4hVQfC7wCVz6MN7WQSb6rkYtmJt/E/iZaTFDjTxtbW1p18jSboNGgyopD20F/Gfwp7r2Ys3yTmPSbezcReI+7l/MAGDXICiUSiyTQ7OxtrbGzcS6xbEy8PfzdgclZOjb+46SbmIZxPYNe95+Jg6RP25dDQ0Fk5Y9nzL5jJTWnnpJKAfWqnlBUypFl+SsVo/cIhXOLLEvNMJsntY6DgrLVJ223nsD8XrjyxNKLR6LuY39ByNVjC/6sI5q+rq6tn1MTsZ1E6fKCjDQ0NE1yUFrpSW7O7gd2upFjtNFv83MjIyBUVLE8sDv4XXa+rqxtn2w+jNWrQVi2Ea+Bcoox2Dg8PT2hxdC8FFaiZoHMk6Y5rAfTaufNcYsyHvkFplb+9BSJ/1tcJ2/IPBUM+DHliActNpGCXNMny3Y2hUVkl8X2hUKh/amoqronJN3WJOWft+QqgzP4yKpOpBVT+DKqTykAkn8Or+C5gfcvLy+fGxsaW6ZcUXWI1GhAhnMF+BvjXi4uLGf6b7WZeojb8RjTKGV5lh66xpUImkysrusTU5wxldIbsr3gCfXyJ/tQgycpFtyW6xAnH/cFVi9Xr7z8T2hb6/zH5X2dXFZyG/VK2AAAAAElFTkSuQmCC"
+                          y="1"
+                        />
+                      </svg>
+                      <p
+                        class="sc-kstrdz iUronQ"
+                      >
+                        Escríbenos por facebook
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div
+              class="sc-dlfnbm hziHjY"
+            >
+              <ul
+                class="sc-fodVxV cTyRtG"
+              >
+                <li
+                  class="sc-fFubgz jmgknO"
+                >
+                  <p
+                    class="sc-kstrdz iUronQ"
+                  >
+                    Te buscamos depa
+                  </p>
+                </li>
+                <li
+                  class="sc-fFubgz jmgknO"
+                >
+                  <p
+                    class="sc-kstrdz iUronQ"
+                  >
+                    Blog
+                  </p>
+                </li>
+                <li
+                  class="sc-fFubgz jmgknO"
+                >
+                  <p
+                    class="sc-kstrdz iUronQ"
+                  >
+                    Equipo
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="sc-dlfnbm sc-idOhPF dDGZRQ hEyJIk"
+            >
+              <p
+                class="sc-kstrdz sc-hBEYos iUronQ hDAYlh"
+              >
+                Aviso de privacidad
+              </p>
+            </div>
+            <div
+              class="sc-dlfnbm sc-idOhPF hziHjY hEyJIk"
+            >
+              <p
+                class="sc-kstrdz sc-hBEYos iUronQ hDAYlh"
+              >
+                Términos y condiciones
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="sc-bqyKva jQYkRD"
+    >
+      <div
+        class="sc-bdfBwQ sc-kLgntA guSBMN iXAtuJ"
+      >
+        <div
+          class="sc-gsTCUz ikQfAY"
+        >
+          <div
+            class="sc-dlfnbm eSUTag"
+          >
+            <div
+              class="sc-gsTCUz ikQfAY"
+            >
+              <div
+                class="sc-dlfnbm sc-bkzZxe hziHjY itmDFr"
+              >
+                <svg
+                  class="Footer__Logo-h84djn-5 cnyeeA"
+                  height="35"
+                  width="35"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M35 0l-.041 35H20.43v-4.503h10.03V4.503H4.58v9.006H0V0h35zM15.69 16.897V35h-4.518v-7.155H4.518V35H0V16.897h4.518v6.853h6.654v-6.853h4.518z"
+                    fill="#FF0364"
+                  />
+                </svg>
+              </div>
+              <div
+                class="sc-dlfnbm fLHlfI"
+              >
+                <ul
+                  class="sc-fodVxV cTyRtG"
+                >
+                  <li
+                    class="sc-fFubgz jmgknO"
+                  >
+                    <p
+                      class="sc-kstrdz iUronQ"
+                    >
+                      hey@homie.mx
+                    </p>
+                  </li>
+                  <li
+                    class="sc-fFubgz jmgknO"
+                  >
+                    <p
+                      class="sc-kstrdz iUronQ"
+                    >
+                      5015 1546
+                    </p>
+                  </li>
+                  <li
+                    class="sc-fFubgz jmgknO"
+                  >
+                    <svg
+                      height="13"
+                      width="12"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                    >
+                      <image
+                        fill="none"
+                        fill-rule="evenodd"
+                        height="13"
+                        transform="translate(0 -1)"
+                        width="12"
+                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAgCAYAAAAFQMh/AAAABGdBTUEAALGOfPtRkwAABM1JREFUSA3Nll1om2UUx5M3CVk+mtXZimUdrC10Ewdzdl4EhJalNu2uFCbeqExldkOHguKFF1JQwYlUUClWrSgIXlRFJrRpta5ICupa2DoKazFdSLPVdbrZNk2bb38nyxvepG+a2jLwwMl5nvOc8/8/n+eN0bBZ6epS9u055IgpNQ6XKVEVN5srDGaDwRJPRdIJ841kOr4yPffTiqGrK70ZSGO5oJaWFuANTrPZ7DKZTI2KotQbjcaHM5nMfvySP43+kk6nZ1Op1EwymVyiHxkdHU1iS8pGxIrX662E4ACEj4HQhjZAatVDIy6GP4D+SPv7SCRy0e/3L9LX3QFdYla5w2Kx7EdfBORxyFx6ZKV85CyR088OfBiLxaZZ/VpxrKnY0dbW5oDwUba2lzFPqRUW52n7uZwHsY+AM19fX38lEAgktDEFxG632+ZwOE6Q8AFB92gDt9IGZxd6lNyb1dXVk+FwOH/ueWK5RE6n8ymC3id4x1aISuRY8B+xWq1ztbW1l4LBYPbMFTXYZrMd5sa+A6nu5VHjtmIFU7CFQ83PrripqcnOFn9KwAF14A5YO/h7XS7Xt/Pz84nsitn/doiO3AGyAkhuuwcurziF2MRMnkF1n1ZB5u1OCnML1X2fmvg0RCv0JT4rwoE8S8dk5Pns4cpP0qm8Pbzhr4BdRHsBeJVIKSjrJiyEuOcYH6d9lPYuDeotqttBhaok51qWFIAMcTOAPO/z+eSNd9IO5vxZXNpraBjtpXicxtYUkUrcXcKpMCg1d0MhRkgD1OMTAwMD4xI8ODj4M+6TAIewMfQG7W8gPBaPx7sBf4W+Rw8Y/33ccuWQ3mCRLwzpKVbq5wXIu8wK5MMQnqbzA/Y4k3oa0gBv9mN8cmF1hdiDxvb29o8gf0E3AidB1zAnFxYWfBUVFTsBfYD6e4H6+5cmRy5puqOjoxrbw4qOacb0mj2ScF5vJOe7jn2J1Y5VVVU1UwA+YQvP2u32t6h02nuR9ng8d0PYvQlSA3i/K/xcZlX5GiqE9EX+Rl/nBv4hVQfC7wCVz6MN7WQSb6rkYtmJt/E/iZaTFDjTxtbW1p18jSboNGgyopD20F/Gfwp7r2Ys3yTmPSbezcReI+7l/MAGDXICiUSiyTQ7OxtrbGzcS6xbEy8PfzdgclZOjb+46SbmIZxPYNe95+Jg6RP25dDQ0Fk5Y9nzL5jJTWnnpJKAfWqnlBUypFl+SsVo/cIhXOLLEvNMJsntY6DgrLVJ223nsD8XrjyxNKLR6LuY39ByNVjC/6sI5q+rq6tn1MTsZ1E6fKCjDQ0NE1yUFrpSW7O7gd2upFjtNFv83MjIyBUVLE8sDv4XXa+rqxtn2w+jNWrQVi2Ea+Bcoox2Dg8PT2hxdC8FFaiZoHMk6Y5rAfTaufNcYsyHvkFplb+9BSJ/1tcJ2/IPBUM+DHliActNpGCXNMny3Y2hUVkl8X2hUKh/amoqronJN3WJOWft+QqgzP4yKpOpBVT+DKqTykAkn8Or+C5gfcvLy+fGxsaW6ZcUXWI1GhAhnMF+BvjXi4uLGf6b7WZeojb8RjTKGV5lh66xpUImkysrusTU5wxldIbsr3gCfXyJ/tQgycpFtyW6xAnH/cFVi9Xr7z8T2hb6/zH5X2dXFZyG/VK2AAAAAElFTkSuQmCC"
+                        y="1"
+                      />
+                    </svg>
+                    <p
+                      class="sc-kstrdz iUronQ"
+                    >
+                      Escríbenos por facebook
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div
+            class="sc-dlfnbm hziHjY"
+          >
+            <ul
+              class="sc-fodVxV cTyRtG"
+            >
+              <li
+                class="sc-fFubgz jmgknO"
+              >
+                <p
+                  class="sc-kstrdz iUronQ"
+                >
+                  Te buscamos depa
+                </p>
+              </li>
+              <li
+                class="sc-fFubgz jmgknO"
+              >
+                <p
+                  class="sc-kstrdz iUronQ"
+                >
+                  Blog
+                </p>
+              </li>
+              <li
+                class="sc-fFubgz jmgknO"
+              >
+                <p
+                  class="sc-kstrdz iUronQ"
+                >
+                  Equipo
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="sc-dlfnbm sc-idOhPF dDGZRQ hEyJIk"
+          >
+            <p
+              class="sc-kstrdz sc-hBEYos iUronQ hDAYlh"
+            >
+              Aviso de privacidad
+            </p>
+          </div>
+          <div
+            class="sc-dlfnbm sc-idOhPF hziHjY hEyJIk"
+          >
+            <p
+              class="sc-kstrdz sc-hBEYos iUronQ hDAYlh"
+            >
+              Términos y condiciones
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

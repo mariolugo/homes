@@ -363,4 +363,8 @@ Post.propTypes = {
   highlightPost: PropTypes.string,
 };
 
+Post.defaultProps = {
+  photos: [],
+};
+
 export default Post;

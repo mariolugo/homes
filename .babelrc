@@ -1,0 +1,19 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        "@babel/preset-env",
+        "@babel/react",
+        "next/babel"
+      ],
+      "plugins": [
+        "inline-react-svg",
+      ]
+    },
+    "development": {
+      "presets": [
+        "next/babel"
+      ]
+    }
+  }
+}
