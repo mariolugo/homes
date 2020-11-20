@@ -34,6 +34,8 @@ const MapComponent = ({
   fullscreenControl,
   markers,
   highlightMarker,
+  highlightPost,
+  focusPost,
 }) => {
   const [localMapRef, setlocalMapRef] = useState(null);
   const [currentHighlight, setCurrentHighlight] = useState();
@@ -49,6 +51,30 @@ const MapComponent = ({
     clickableIcons: false,
     clickableLabels: false,
     streetViewControl: false,
+  };
+
+  const changeMarkerColor = (id) => {
+    const index = markersArray.findIndex((m) => m.id === id);
+
+    const marker = markersArray[index];
+
+    if (currentHighlight && currentHighlight !== id) {
+      const oldIndex = markersArray.findIndex((m) => m.id === currentHighlight);
+      if (oldIndex > -1) {
+        const oldMarker = markersArray[oldIndex];
+        oldMarker.setMap(null);
+        oldMarker.icon.fillColor = icon.fillColor;
+        oldMarker.setMap(map);
+      }
+    }
+
+    marker.setMap(null);
+    marker.icon.fillColor = 'rgb(255, 21, 85)';
+    marker.setMap(map);
+    map.setZoom(11);
+    map.setCenter(marker.getPosition());
+
+    setCurrentHighlight(marker.id);
   };
 
   useEffect(() => {
@@ -101,6 +127,11 @@ const MapComponent = ({
           labelClass: 'label-marker', // your desired CSS class
           labelInBackground: false,
         });
+
+        new google.maps.event.addListener(m, 'click', function () {
+          focusPost(markers[i].id);
+        });
+
         bounds.extend(markers[i]);
         markersArray.push(m);
       }
@@ -108,33 +139,17 @@ const MapComponent = ({
     }
   }, [localMapRef, markers]);
 
-  useEffect(() => {});
-
   useEffect(() => {
     if (highlightMarker && markersArray.length > 0) {
-      const index = markersArray.findIndex((m) => m.id === highlightMarker);
-
-      const marker = markersArray[index];
-
-      if (currentHighlight && currentHighlight !== highlightMarker) {
-        const oldIndex = markersArray.findIndex((m) => m.id === currentHighlight);
-        if (oldIndex > -1) {
-          const oldMarker = markersArray[oldIndex];
-          oldMarker.setMap(null);
-          oldMarker.icon.fillColor = icon.fillColor;
-          oldMarker.setMap(map);
-        }
-      }
-
-      marker.setMap(null);
-      marker.icon.fillColor = 'rgb(255, 21, 85)';
-      marker.setMap(map);
-      map.setZoom(14);
-      map.setCenter(marker.getPosition());
-
-      setCurrentHighlight(marker.id);
+      changeMarkerColor(highlightMarker);
     }
   }, [highlightMarker]);
+
+  useEffect(() => {
+    if (highlightPost && markersArray.length > 0) {
+      changeMarkerColor(highlightPost);
+    }
+  }, [highlightPost]);
 
   return (
     <MapContainerStyled>
@@ -162,6 +177,8 @@ MapComponent.propTypes = {
     }),
   ),
   highlightMarker: PropTypes.string,
+  highlightPost: PropTypes.string,
+  focusPost: PropTypes.func,
 };
 
 MapComponent.defaultProps = {

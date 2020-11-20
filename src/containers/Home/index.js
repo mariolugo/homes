@@ -36,6 +36,7 @@ const ListingsContainer = styled(Col)`
  */
 const Home = () => {
   const [highlightMarker, setHighligthMarker] = useState();
+  const [highlightPost, setHighlightPost] = useState();
 
   const mapRef = useRef();
   const mapWidth = useGetWidth(mapRef);
@@ -53,18 +54,28 @@ const Home = () => {
     dispatch(fetchHomes());
   }, []);
 
+  const clearHighlights = () => {
+    setHighligthMarker(null);
+    setHighlightPost(null);
+  };
+
   const goNext = () => {
     dispatch(paginateNextPage({ page: 1 }));
-    setHighligthMarker(null);
+    clearHighlights();
   };
 
   const goBack = () => {
     dispatch(paginateNextPage({ page: -1 }));
-    setHighligthMarker(null);
+    clearHighlights();
   };
 
   const onHover = (id) => {
     setHighligthMarker(id);
+    setHighlightPost(null);
+  };
+
+  const focusPost = (id) => {
+    setHighlightPost(id);
   };
 
   return (
@@ -74,7 +85,7 @@ const Home = () => {
           <ListingsHeader />
           {!fetching && (
             <>
-              <Listings homes={currentHomes} onHover={onHover} />
+              <Listings homes={currentHomes} onHover={onHover} highlightPost={highlightPost} />
               <Paginator
                 goNext={goNext}
                 goBack={goBack}
@@ -90,7 +101,13 @@ const Home = () => {
         </ListingsContainer>
         <Col xs={12} md={5} ref={mapRef}>
           {!fetching && (
-            <Map width={mapWidth} markers={markers} highlightMarker={highlightMarker} />
+            <Map
+              width={mapWidth}
+              markers={markers}
+              highlightMarker={highlightMarker}
+              highlightPost={highlightPost}
+              focusPost={focusPost}
+            />
           )}
         </Col>
       </RowStyled>
