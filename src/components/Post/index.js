@@ -1,24 +1,11 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-// import { Col, Row } from 'react-styled-flexboxgrid';
 import FavoriteOutline from '../../assets/icons/favorite-outline.svg';
 import Slider from 'react-styled-carousel';
 import Image from 'next/image';
 import { useGetWidth, formatPrice } from '../../utils';
 import { homeTypes } from '../../types';
-
-const PostContainer = styled.div`
-  background-color: white;
-  margin-bottom: 15px;
-  border-radius: 2px;
-  transition: all 0.2s ease-in-out 0s;
-  position: relative;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px 0px;
-
-  &:hover {
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
-  }
-`;
+import PropTypes from 'prop-types';
 
 const PostPrice = styled.div`
   width: 111px;
@@ -53,6 +40,43 @@ const Price = styled.h3`
   float: left;
   margin: 0;
   color: ${({ theme }) => theme.colors.secondary};
+`;
+
+const PostContainer = styled.div`
+  background-color: white;
+  margin-bottom: 25px;
+  border-radius: 2px;
+  transition: all 0.2s ease-in-out 0s;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px 0px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
+  }
+
+  ${({ highlight, theme }) =>
+    highlight &&
+    `
+    box-shadow: 0px 6px 11px 0px rgba(0,0,0,0.75);
+
+    
+       
+
+    ${PostPrice} {
+        background-color: ${theme.colors.secondary};
+        
+    }
+
+    ${FavoriteIcon} {
+        svg {
+            color: white
+        }
+    }
+
+    ${Price} {
+        color: white;
+    }
+  `}
 `;
 
 const ImageSlide = styled.div`
@@ -142,7 +166,6 @@ const LeftArrow = styled.button`
   width: 16px;
   background-color: #fff;
   left: 0px;
-
   border: 0;
   cursor: pointer;
   outline: none;
@@ -269,12 +292,24 @@ const Post = ({
   photos,
   price,
   sqare_mts,
+  id,
+  onHover,
+  highlightPost,
 }) => {
   const componentRef = useRef();
   const width = useGetWidth(componentRef);
 
+  const hasHighlight = () => highlightPost && highlightPost === id;
+
+  if (hasHighlight()) {
+    componentRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
+  }
+
   return (
-    <PostContainer ref={componentRef}>
+    <PostContainer ref={componentRef} onMouseEnter={() => onHover(id)} highlight={hasHighlight()}>
       <PostPrice>
         <Price>${formatPrice(price)}</Price>
         <FavoriteIcon>
@@ -324,6 +359,8 @@ const Post = ({
 
 Post.propTypes = {
   ...homeTypes,
+  onHover: PropTypes.func,
+  highlightPost: PropTypes.string,
 };
 
 export default Post;

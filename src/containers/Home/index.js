@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Col, Row } from 'react-styled-flexboxgrid';
 import { Layout } from '..';
@@ -14,6 +14,7 @@ import {
   paginateNextPage,
   getFetching,
   getCurrentCount,
+  getCurrentMarkers,
 } from '../../redux/modules/home';
 
 const RowStyled = styled(Row)`
@@ -34,6 +35,9 @@ const ListingsContainer = styled(Col)`
  * Home component
  */
 const Home = () => {
+  const [highlightMarker, setHighligthMarker] = useState();
+  const [highlightPost, setHighlightPost] = useState();
+
   const mapRef = useRef();
   const mapWidth = useGetWidth(mapRef);
   const dispatch = useDispatch();
@@ -44,18 +48,35 @@ const Home = () => {
   const currentHomes = useSelector(getCurrentHomes);
   const currentCount = useSelector(getCurrentCount);
   const fetching = useSelector(getFetching);
-
-  const goNext = () => {
-    dispatch(paginateNextPage({ page: 1 }));
-  };
-
-  const goBack = () => {
-    dispatch(paginateNextPage({ page: -1 }));
-  };
+  const markers = useSelector(getCurrentMarkers);
 
   useEffect(() => {
     dispatch(fetchHomes());
   }, []);
+
+  const clearHighlights = () => {
+    setHighligthMarker(null);
+    setHighlightPost(null);
+  };
+
+  const goNext = () => {
+    dispatch(paginateNextPage({ page: 1 }));
+    clearHighlights();
+  };
+
+  const goBack = () => {
+    dispatch(paginateNextPage({ page: -1 }));
+    clearHighlights();
+  };
+
+  const onHover = (id) => {
+    setHighligthMarker(id);
+    setHighlightPost(null);
+  };
+
+  const focusPost = (id) => {
+    setHighlightPost(id);
+  };
 
   return (
     <Layout>
@@ -64,7 +85,7 @@ const Home = () => {
           <ListingsHeader />
           {!fetching && (
             <>
-              <Listings homes={currentHomes} />
+              <Listings homes={currentHomes} onHover={onHover} highlightPost={highlightPost} />
               <Paginator
                 goNext={goNext}
                 goBack={goBack}
@@ -79,7 +100,15 @@ const Home = () => {
           <ListingsFooter />
         </ListingsContainer>
         <Col xs={12} md={5} ref={mapRef}>
-          <Map width={mapWidth} />
+          {!fetching && (
+            <Map
+              width={mapWidth}
+              markers={markers}
+              highlightMarker={highlightMarker}
+              highlightPost={highlightPost}
+              focusPost={focusPost}
+            />
+          )}
         </Col>
       </RowStyled>
     </Layout>

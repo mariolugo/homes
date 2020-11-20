@@ -9,13 +9,13 @@ const ListingsContainerStyled = styled.div``;
 
 const ListingsCol = styled(Col)``;
 
-const ListingsContainer = ({ homes }) => (
+const ListingsContainer = ({ homes, onHover, highlightPost }) => (
   <ListingsContainerStyled>
     <Row>
       {homes.length > 0 &&
         homes.map((home) => (
           <ListingsCol key={home.id} xs={12} md={6}>
-            <Post {...home} />
+            <Post {...home} onHover={onHover} highlightPost={highlightPost} />
           </ListingsCol>
         ))}
     </Row>
@@ -28,10 +28,13 @@ ListingsContainer.propTypes = {
       ...homeTypes,
     }),
   ),
+  onHover: PropTypes.func,
+  highlightPost: PropTypes.string,
 };
 
 ListingsContainer.defaultProps = {
   homes: [],
+  highlightPost: '',
 };
 
 export default ListingsContainer;
