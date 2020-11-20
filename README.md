@@ -30,6 +30,7 @@ feature/design # Branch to add all the styling of the app
 feature/redux # Branch to add the redux functionality
 feature/pagination # Added the paginator with redux
 feature/map # Added map pins
+feature/testing # Adding tests to the app
 ```
 
 For every feature there is a Pull Request, I'm trying to simulute a real world development team contributions, where you can do or ask for code reviews.
