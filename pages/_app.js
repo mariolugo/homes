@@ -33,6 +33,14 @@ const GlobalStyle = createGlobalStyle`
     background-color: rgb(249, 249, 249); 
     font-family: 'Open Sans', sans-serif;
   }
+  
+  .label-marker {
+    color: white;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    z-index: 10;
+    opacity: 1 !important;
+  }
 `;
 
 const App = ({ Component, pageProps }) => {
@@ -41,6 +49,7 @@ const App = ({ Component, pageProps }) => {
     <>
       <Head>
         <script type="text/javascript" src={GOOGLE_MAPS_API_URL} />
+        <script src="https://unpkg.com/@googlemaps/markerwithlabel/dist/index.min.js"></script>
       </Head>
       <GlobalStyle />
       <Provider store={store}>

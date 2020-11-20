@@ -40,13 +40,22 @@ const onFetchSuccess = (state, payload) => {
     const totalPages = Math.ceil(total / PER_PAGE);
     // get all the homes
     const homes = payload.homes;
+
+    const currentHomes = homes.slice(0, PER_PAGE);
+    const markers = currentHomes.map((home) => ({
+      id: home.id,
+      lat: home.location.lat,
+      lng: home.location.lng,
+      price: home.price,
+    }));
     newState = newState.merge({
       fetching: false,
       homes,
       // load 12 documents to start with.
-      currentHomes: homes.slice(0, PER_PAGE),
+      currentHomes,
       currentCount: PER_PAGE,
       totalPages,
+      markers,
       total,
       currentPage: 1,
     });
@@ -81,7 +90,7 @@ const onPaginateNextPage = (state, payload) => {
   // set current page (current page + next page)
   const nextPage = currentPage + addPages;
 
-  let nextHomes;
+  let currentHomes;
   let nextCount = currentCount;
   if (addPages === 1) {
     // move up page, add 12 homes
@@ -91,7 +100,7 @@ const onPaginateNextPage = (state, payload) => {
     // our count per page
     nextCount += PER_PAGE;
 
-    nextHomes = homes.slice(lowerCount, upperCount);
+    currentHomes = homes.slice(lowerCount, upperCount);
   }
 
   if (addPages === -1) {
@@ -99,15 +108,23 @@ const onPaginateNextPage = (state, payload) => {
     const lowerCount = currentCount - PER_PAGE;
 
     nextCount = lowerCount;
-    nextHomes = homes.slice(lowerCount - PER_PAGE, upperCount - PER_PAGE);
+    currentHomes = homes.slice(lowerCount - PER_PAGE, upperCount - PER_PAGE);
   }
 
   window.history.pushState({ page: 1 }, 'title 1', `?page=${nextPage}`);
 
+  const markers = currentHomes.map((home) => ({
+    id: home.id,
+    lat: home.location.lat,
+    lng: home.location.lng,
+    price: home.price,
+  }));
+
   newState = newState.merge({
     currentPage: nextPage,
     currentCount: nextCount,
-    currentHomes: nextHomes,
+    currentHomes,
+    markers,
   });
 
   return newState;
@@ -209,4 +226,5 @@ export const getTotalHomes = (state) => state.home.get('total');
 export const getTotalPages = (state) => state.home.get('totalPages');
 export const getCurrentPage = (state) => state.home.get('currentPage');
 export const getCurrentCount = (state) => state.home.get('currentCount');
+export const getCurrentMarkers = (state) => state.home.get('markers');
 export const getFetching = (state) => state.home.get('fetching');

@@ -14,6 +14,7 @@ import {
   paginateNextPage,
   getFetching,
   getCurrentCount,
+  getCurrentMarkers,
 } from '../../redux/modules/home';
 
 const RowStyled = styled(Row)`
@@ -44,6 +45,7 @@ const Home = () => {
   const currentHomes = useSelector(getCurrentHomes);
   const currentCount = useSelector(getCurrentCount);
   const fetching = useSelector(getFetching);
+  const markers = useSelector(getCurrentMarkers);
 
   const goNext = () => {
     dispatch(paginateNextPage({ page: 1 }));
@@ -56,6 +58,8 @@ const Home = () => {
   useEffect(() => {
     dispatch(fetchHomes());
   }, []);
+
+  console.log('markers', markers);
 
   return (
     <Layout>
@@ -79,7 +83,7 @@ const Home = () => {
           <ListingsFooter />
         </ListingsContainer>
         <Col xs={12} md={5} ref={mapRef}>
-          <Map width={mapWidth} />
+          {!fetching && <Map width={mapWidth} markers={markers} />}
         </Col>
       </RowStyled>
     </Layout>
