@@ -32,7 +32,7 @@ const ListingsContainer = styled(Col)`
 `;
 
 /**
- * Home component
+ * Home component used to handle all the redux logic
  */
 const Home = () => {
   const [highlightMarker, setHighligthMarker] = useState();
@@ -42,6 +42,7 @@ const Home = () => {
   const mapWidth = useGetWidth(mapRef);
   const dispatch = useDispatch();
 
+  // redux selectors
   const totalHomes = useSelector(getTotalHomes);
   const currentPage = useSelector(getCurrentPage);
   const totalPages = useSelector(getTotalPages);

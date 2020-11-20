@@ -17,6 +17,9 @@ const ControlStyled = styled.div`
   border-radius: 2px;
 `;
 
+/**
+ * Help control that is required in the map.
+ */
 const HelpControl = () => {
   return (
     <ControlStyled>

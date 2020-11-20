@@ -1,5 +1,5 @@
 /**
- * Theme config
+ * Theme config, we can add all the colors needed for the app.
  */
 export default {
   colors: {

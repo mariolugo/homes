@@ -28,6 +28,10 @@ const PaginatorText = styled.p`
   font-size: 16px;
 `;
 
+/**
+ *
+ * This is the Paginator. We pass all the functions to it so we dont handle redux logic in here.
+ */
 const Paginator = ({ goNext, goBack, currentPage, totalPages, totalHomes, currentCount }) => (
   <PaginatorStyled>
     {currentPage > 1 && (

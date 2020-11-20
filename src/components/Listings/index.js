@@ -9,6 +9,12 @@ const ListingsContainerStyled = styled.div``;
 
 const ListingsCol = styled(Col)``;
 
+/**
+ * This is the listing components, we can pass homes to it and it will render them.
+ * @param {*} {homes} this is the home array
+ * @param {*} {onHover} function used on the room when you pass the mouse over it
+ * @param {*} {highlightPost} if a marker is clicked, it will highlight the post.
+ */
 const ListingsContainer = ({ homes, onHover, highlightPost }) => (
   <ListingsContainerStyled>
     <Row>

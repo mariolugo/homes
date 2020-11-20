@@ -14,7 +14,6 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
 To run the tests:
 
 ```bash
@@ -22,10 +21,10 @@ yarn test
 ```
 
 To run the test coverage
+
 ```bash
 yarn test:coverage
 ```
-
 
 ## Workflow
 
@@ -42,6 +41,7 @@ feature/redux # Branch to add the redux functionality
 feature/pagination # Added the paginator with redux
 feature/map # Added map pins
 feature/testing # Adding tests to the app
+feature/documentation # Improving documentation on components
 ```
 
 For every feature there is a Pull Request, I'm trying to simulute a real world development team contributions, where you can do or ask for code reviews.
@@ -72,7 +72,7 @@ prettier # to share the same code styling
 
 ## Testing
 
-Used `jest` and `enzyme` for testing. 
+Used `jest` and `enzyme` for testing.
 In most of the components I'm using `snapshots`, these are a very useful tool whenever you want to make sure your UI does not change unexpectedly.
 
 I tested the home saga `getHomeWorker` using `runSaga`, with 2 tests:
@@ -150,10 +150,13 @@ I used the saga middleware and an api object, this can be used to handle all the
 │   │   │   │   └── index.test.js
 │   │   └── index.js
 │   ├── redux
-│   │   └── home
-│   │   │   └── duck.js
+│   │   │   └── modules
+│   │   │   └── home
+│   │   │   |   └── __tests__/
+│   │   │   │       └── index.test.js
+│   │   │   │   └── index.js
 │   │   └── store.js
-│   │   └── index.js
+│   │   └── api.js
 │   ├── constants
 │   │   └── index.js
 │   ├── containers

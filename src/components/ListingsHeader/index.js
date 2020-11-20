@@ -62,6 +62,9 @@ const InfoBox = styled.div`
   }
 `;
 
+/**
+ * Listing headers, where the filter is.
+ */
 const ListingHeaders = () => (
   <ListingHeaderStyled>
     <Row>
