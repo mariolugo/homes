@@ -13,6 +13,15 @@ const MapContainerStyled = styled.div`
 let map = null;
 let markersArray = [];
 
+const icon = {
+  path:
+    'M2,4.26325641e-14 L65.9291719,-2.08721929e-14 C67.0337414,-2.1075099e-14 67.9291719,0.8954305 67.9291719,2 L67.9291719,23.1112804 C67.9291719,24.2158499 67.0337414,25.1112804 65.9291719,25.1112804 L13.1626299,25.1112804 C12.5548036,25.1112804 11.9799621,25.3876941 11.6004313,25.8624668 L3.56219864,35.9178633 C2.87249792,36.7806418 1.61396487,36.920949 0.751186393,36.2312483 C0.276413708,35.8517175 5.64608533e-09,35.276876 5.54880497e-09,34.6690497 L0,2 C-1.76786699e-10,0.8954305 0.8954305,-1.43271482e-10 2,-3.20057758e-10 Z',
+  fillColor: 'rgb(141, 122, 255)',
+  fillOpacity: 1,
+  strokeWeight: 0,
+  scale: 1.2,
+};
+
 const MapComponent = ({
   width,
   lat,
@@ -23,11 +32,13 @@ const MapComponent = ({
   zoomControl,
   scaleControl,
   fullscreenControl,
-  gestureHandling,
   markers,
+  highlightMarker,
 }) => {
   const [localMapRef, setlocalMapRef] = useState(null);
+  const [currentHighlight, setCurrentHighlight] = useState();
   const mapDivRef = useRef();
+
   const options = {
     center: { lat, lng },
     zoom,
@@ -39,6 +50,7 @@ const MapComponent = ({
     clickableLabels: false,
     streetViewControl: false,
   };
+
   useEffect(() => {
     const google = window.google;
 
@@ -67,6 +79,7 @@ const MapComponent = ({
       for (let i = 0; i < markersArray.length; i++) markersArray[i].setMap(null);
       markersArray = [];
     };
+
     if (localMapRef) {
       if (markersArray.length > 0) {
         clearMap();
@@ -74,21 +87,15 @@ const MapComponent = ({
 
       let bounds = new google.maps.LatLngBounds();
 
-      const icon = {
-        path:
-          'M2,4.26325641e-14 L65.9291719,-2.08721929e-14 C67.0337414,-2.1075099e-14 67.9291719,0.8954305 67.9291719,2 L67.9291719,23.1112804 C67.9291719,24.2158499 67.0337414,25.1112804 65.9291719,25.1112804 L13.1626299,25.1112804 C12.5548036,25.1112804 11.9799621,25.3876941 11.6004313,25.8624668 L3.56219864,35.9178633 C2.87249792,36.7806418 1.61396487,36.920949 0.751186393,36.2312483 C0.276413708,35.8517175 5.64608533e-09,35.276876 5.54880497e-09,34.6690497 L0,2 C-1.76786699e-10,0.8954305 0.8954305,-1.43271482e-10 2,-3.20057758e-10 Z',
-        fillColor: 'rgb(141, 122, 255)',
-        fillOpacity: 1,
-        anchor: new google.maps.Point(0, 0),
-        strokeWeight: 0,
-        scale: 1.2,
-      };
-
       for (let i = 0; i < markers.length; i++) {
         const m = new MarkerWithLabel({
+          id: markers[i].id,
           map: map,
           position: new google.maps.LatLng(markers[i].lat, markers[i].lng),
-          icon,
+          icon: {
+            ...icon,
+            anchor: new google.maps.Point(0, 0),
+          },
           labelContent: `$${formatPrice(markers[i].price)}`,
           labelAnchor: new google.maps.Point(10, 5),
           labelClass: 'label-marker', // your desired CSS class
@@ -101,19 +108,33 @@ const MapComponent = ({
     }
   }, [localMapRef, markers]);
 
-  useEffect(() => {
-    if (localMapRef) {
-      const newOptions = Object.assign({}, options);
-      newOptions.gestureHandling = gestureHandling ? 'greedy' : 'none';
-      localMapRef.setOptions(newOptions);
-    }
-  }, [localMapRef, gestureHandling]);
+  useEffect(() => {});
 
   useEffect(() => {
-    if (localMapRef && lat && lng) {
-      localMapRef.setCenter({ lat, lng });
+    if (highlightMarker && markersArray.length > 0) {
+      const index = markersArray.findIndex((m) => m.id === highlightMarker);
+
+      const marker = markersArray[index];
+
+      if (currentHighlight && currentHighlight !== highlightMarker) {
+        const oldIndex = markersArray.findIndex((m) => m.id === currentHighlight);
+        if (oldIndex > -1) {
+          const oldMarker = markersArray[oldIndex];
+          oldMarker.setMap(null);
+          oldMarker.icon.fillColor = icon.fillColor;
+          oldMarker.setMap(map);
+        }
+      }
+
+      marker.setMap(null);
+      marker.icon.fillColor = 'rgb(255, 21, 85)';
+      marker.setMap(map);
+      map.setZoom(14);
+      map.setCenter(marker.getPosition());
+
+      setCurrentHighlight(marker.id);
     }
-  }, [localMapRef, lat, lng]);
+  }, [highlightMarker]);
 
   return (
     <MapContainerStyled>
@@ -132,7 +153,6 @@ MapComponent.propTypes = {
   zoomControl: PropTypes.bool,
   scaleControl: PropTypes.bool,
   fullscreenControl: PropTypes.bool,
-  gestureHandling: PropTypes.bool,
   markers: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -141,6 +161,7 @@ MapComponent.propTypes = {
       price: PropTypes.number,
     }),
   ),
+  highlightMarker: PropTypes.string,
 };
 
 MapComponent.defaultProps = {
@@ -152,7 +173,6 @@ MapComponent.defaultProps = {
   zoomControl: true,
   scaleControl: false,
   fullscreenControl: false,
-  gestureHandling: true,
   markers: [],
 };
 

@@ -6,15 +6,15 @@ import Slider from 'react-styled-carousel';
 import Image from 'next/image';
 import { useGetWidth, formatPrice } from '../../utils';
 import { homeTypes } from '../../types';
-
+import PropTypes from 'prop-types';
 const PostContainer = styled.div`
   background-color: white;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   border-radius: 2px;
   transition: all 0.2s ease-in-out 0s;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px 0px;
-
+  cursor: pointer;
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 8px 0px;
   }
@@ -269,12 +269,14 @@ const Post = ({
   photos,
   price,
   sqare_mts,
+  id,
+  onHover,
 }) => {
   const componentRef = useRef();
   const width = useGetWidth(componentRef);
 
   return (
-    <PostContainer ref={componentRef}>
+    <PostContainer ref={componentRef} onMouseEnter={() => onHover(id)}>
       <PostPrice>
         <Price>${formatPrice(price)}</Price>
         <FavoriteIcon>
@@ -324,6 +326,7 @@ const Post = ({
 
 Post.propTypes = {
   ...homeTypes,
+  onHover: PropTypes.func,
 };
 
 export default Post;

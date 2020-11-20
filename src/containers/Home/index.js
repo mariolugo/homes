@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Col, Row } from 'react-styled-flexboxgrid';
 import { Layout } from '..';
@@ -35,6 +35,8 @@ const ListingsContainer = styled(Col)`
  * Home component
  */
 const Home = () => {
+  const [highlightMarker, setHighligthMarker] = useState();
+
   const mapRef = useRef();
   const mapWidth = useGetWidth(mapRef);
   const dispatch = useDispatch();
@@ -47,19 +49,23 @@ const Home = () => {
   const fetching = useSelector(getFetching);
   const markers = useSelector(getCurrentMarkers);
 
-  const goNext = () => {
-    dispatch(paginateNextPage({ page: 1 }));
-  };
-
-  const goBack = () => {
-    dispatch(paginateNextPage({ page: -1 }));
-  };
-
   useEffect(() => {
     dispatch(fetchHomes());
   }, []);
 
-  console.log('markers', markers);
+  const goNext = () => {
+    dispatch(paginateNextPage({ page: 1 }));
+    setHighligthMarker(null);
+  };
+
+  const goBack = () => {
+    dispatch(paginateNextPage({ page: -1 }));
+    setHighligthMarker(null);
+  };
+
+  const onHover = (id) => {
+    setHighligthMarker(id);
+  };
 
   return (
     <Layout>
@@ -68,7 +74,7 @@ const Home = () => {
           <ListingsHeader />
           {!fetching && (
             <>
-              <Listings homes={currentHomes} />
+              <Listings homes={currentHomes} onHover={onHover} />
               <Paginator
                 goNext={goNext}
                 goBack={goBack}
@@ -83,7 +89,9 @@ const Home = () => {
           <ListingsFooter />
         </ListingsContainer>
         <Col xs={12} md={5} ref={mapRef}>
-          {!fetching && <Map width={mapWidth} markers={markers} />}
+          {!fetching && (
+            <Map width={mapWidth} markers={markers} highlightMarker={highlightMarker} />
+          )}
         </Col>
       </RowStyled>
     </Layout>
