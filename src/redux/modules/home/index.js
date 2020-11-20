@@ -193,7 +193,7 @@ export const paginateNextPage = ({ page }) => ({
  *
  * @param {*} api
  */
-function* getHomeWorker(api) {
+export function* getHomeWorker(api) {
   try {
     const homesResponse = yield call(api.get, '/homes');
     const successAction = fetchHomesSuccess(homesResponse.data);

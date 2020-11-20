@@ -14,7 +14,18 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+To run the tests:
+
+```bash
+yarn test
+```
+
+To run the test coverage
+```bash
+yarn test:coverage
+```
+
 
 ## Workflow
 
@@ -48,7 +59,7 @@ These are ones of the major libraries used:
 ```
 Next.js # Used for SEO and SSR
 Styled Components # Styling library used to make resuable and easy-readable components
-Jest / Enzyme # Testing Suite
+Jest / @testing-library/react # Testing Suite
 Redux/Redux-Saga # State management and midleware for side effects
 Axios # Promise based HTTP client
 PropTypes # Used for component documentaiton
@@ -59,13 +70,25 @@ eslint # linter tool to find and fix problems in javascript code.
 prettier # to share the same code styling
 ```
 
+## Testing
+
+Used `jest` and `enzyme` for testing. 
+In most of the components I'm using `snapshots`, these are a very useful tool whenever you want to make sure your UI does not change unexpectedly.
+
+I tested the home saga `getHomeWorker` using `runSaga`, with 2 tests:
+
+The first one tests that the saga is excecuted correctly and the other one simulates an error
+
 ## Google Maps
 
 I have not used a map library. I think you can have a better control of the map if you are not using a library. I'm importing on `pages/_app.js` the script tag with the google maps url.
 
+Also used an external script to add custom markers.
+
 ## Redux Pattern
 
 I used a redux modular pattern called [Ducks](https://github.com/erikras/ducks-modular-redux), that collocates actions, action types and reducers.
+I used the saga middleware and an api object, this can be used to handle all the HTTP methods in one place. Also, you can add headers and tokens to that api, and it will be automatically used on all the future sagas.
 
 ## Structure overview
 
