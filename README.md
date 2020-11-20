@@ -14,7 +14,6 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
 To run the tests:
 
 ```bash
@@ -22,10 +21,10 @@ yarn test
 ```
 
 To run the test coverage
+
 ```bash
 yarn test:coverage
 ```
-
 
 ## Workflow
 
@@ -72,7 +71,7 @@ prettier # to share the same code styling
 
 ## Testing
 
-Used `jest` and `enzyme` for testing. 
+Used `jest` and `enzyme` for testing.
 In most of the components I'm using `snapshots`, these are a very useful tool whenever you want to make sure your UI does not change unexpectedly.
 
 I tested the home saga `getHomeWorker` using `runSaga`, with 2 tests:
