@@ -104,7 +104,7 @@ These are ones of the major libraries I used to accomplish this test.
  to share the same code styling
 ## Testing
 
-Used `jest` and `enzyme` for testing.
+Used `jest` and `@testing-library/react` for testing.
 In most of the components I'm using `snapshots`, these are a very useful tool whenever you want to make sure your UI does not change unexpectedly.
 
 I tested the home saga `getHomeWorker` using `runSaga`, with 2 tests:
